@@ -1,0 +1,33 @@
+.boys__banner{
+    background-color: #155d94;
+    width: 100%;
+    margin-top: .5rem;
+    padding: 15px;
+    
+    div{
+        color: #fff;
+        padding: 15px;
+        border: dashed 2px #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1{
+            text-align: center;
+            
+            @media screen and (max-width: 568px){
+                font-size: 1rem;
+            }
+        }
+
+        img{
+            width: 10%;
+            height: 15vh;
+            margin-left: 15px;
+
+            @media screen and (max-width: 707px){
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,90 @@
+.shop__container{
+    margin-top: 3rem;
+    //margin-bottom: 4rem;
+    
+    .shop__title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+
+        button{
+            border: none;
+            padding: 5px;
+            font-size: 1.5rem;
+            background-color: #d47bbc;
+            text-wrap: nowrap;
+            font-weight: bold;
+            color: #5e2838;
+            text-transform: uppercase;
+            font-style: italic;
+
+            @media screen and (max-width: 191px){
+                font-size: 11vmin;
+            }
+        }
+
+        h2{
+            text-shadow: 0px 5px 2px #efe665;
+            @media screen and (max-width: 191px){
+                font-size: 11vmin;
+            }
+        }
+    }
+
+    .select{
+        text-align: right;
+        padding-right: 5px;
+
+        select{
+            color: #7f3c4e;
+            font-size: 1rem;
+            outline: none;
+            border: dashed 2px #ec6260;
+            padding: 5px;
+            border-radius: 15px;
+            width: 20%;
+            box-shadow: 0px 2px 8px #ffa6c1;
+
+            @media screen and (max-width: 779px){
+                width: 50%;
+            }
+        }
+    }
+
+    .girls__banner{
+        background-color: #f28690;
+        width: 100%;
+        margin-top: 5rem;
+        padding: 15px;
+        
+        div{
+            color: #fff;
+            padding: 15px;
+            border: dashed 2px #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h1{
+                text-align: center;
+                
+                @media screen and (max-width: 568px){
+                    font-size: 1rem;
+                }
+            }
+
+            img{
+                width: 10%;
+                height: 15vh;
+                margin-left: 15px;
+    
+                @media screen and (max-width: 707px){
+                    display: none;
+                }
+            }
+        }
+    }
+}

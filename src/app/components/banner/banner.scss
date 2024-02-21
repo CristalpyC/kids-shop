@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+.banner__container{
+    height: 75vh;
+    background: linear-gradient(190deg, #e2e2e2, #8092ff, #f499e9);
+    overflow: hidden;
+
+    @media screen and (max-width: 950px){
+        height: 100vh;
+    }
+
+    @media screen and (max-width: 606px){
+        height: 90vh;
+    }
+
+    .clouds{
+        background-image: url("https://static.vecteezy.com/system/resources/thumbnails/013/743/815/small/colorful-bright-confetti-png.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        width: 20%;
+        height: 20%;
+
+        @media screen and (max-width: 950px){
+            display: none;
+        }
+    }
+
+    .banner{
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 950px){
+            flex-wrap: wrap;
+        }
+
+        img{
+            @media screen and (max-width: 950px){
+                width: 100%;
+            }
+
+            @media screen and (max-width: 475px){
+                height: 45vh;
+            }
+
+            @media screen and (max-width: 387px){
+                height: 40vh;
+            }
+        }
+
+        .banner__info{
+            text-align: center;
+            font-family: "Merriweather", serif;
+            margin-left: 15rem;
+            margin-bottom: 5rem;
+
+            @media screen and (max-width: 1400px){
+                margin-left: 25rem;
+            }
+
+            @media screen and (max-width: 1154px){
+                margin-left: 35rem;
+            }
+
+            @media screen and (max-width: 1101px){
+                margin-left: 45rem;
+            }
+
+            @media screen and (max-width: 950px){
+                margin-left: 0;
+                margin-top: 3rem;
+            }
+
+            h3{
+                font-family: "Protest Revolution", sans-serif;
+                font-size: 3rem;
+                text-shadow: 0px 1px 1px #f8efed;
+
+                @media screen and (max-width: 349px){
+                    font-size: 15vmin;
+                }
+            }
+
+            h1{
+                font-size: 2.5rem;
+                text-wrap: nowrap;
+                margin-bottom: .5rem;
+                color: #f8efed;
+
+                @media screen and (max-width: 440px){
+                    font-size: 2rem;
+                }
+
+                @media screen and (max-width: 349px){
+                    font-size: 9vmin;
+                }
+            }
+
+            p{
+                margin-bottom: 1rem;
+                color: #f8efed;
+            }
+
+            button{
+                border: none;
+                padding: 15px;
+                background-color: black;
+                text-wrap: nowrap;
+                color: #ffff;
+                width: 50%;
+                transition: ease-in-out 1s;
+                box-shadow: 0px 1px 15px gray;
+                
+            }
+
+            button:hover{
+                background-color: rgb(106, 102, 102);
+            }
+        }
+    }
+
+}

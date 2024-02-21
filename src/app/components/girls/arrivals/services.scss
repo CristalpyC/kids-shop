@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+
+.services__container{
+    margin-top: 5rem;
+
+    h1{
+        font-family: "Dancing Script", cursive;
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color:  #d47bbc;
+
+        @media screen and (max-width: 434px){
+            font-size: 2.5rem;
+        }
+
+        @media screen and (max-width: 363px){
+            font-size: 2.1rem;
+        }
+
+        @media screen and (max-width: 310px){
+            font-size: 15vmin;
+        }
+    }
+
+    .cards{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        gap: 15px;
+
+        @media screen and (max-width: 850px){
+            flex-wrap: wrap;
+        }
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            border-radius: 15px;
+            width: 50%;
+            height: 35vh;
+            overflow: hidden;
+            margin-bottom: 2rem;
+
+            @media screen and (max-width: 521px){
+                width: 100%;
+                margin-left: 0;
+            }
+
+            @media screen and (max-width: 499px){
+                padding-bottom: 7px;
+            }
+
+            img{
+                width: 20%;
+                height: 15vh;
+                margin-bottom: 1rem;
+            }
+
+            h4{
+                font-style: italic;
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #3f0b09;
+
+                @media screen and (max-width: 938px){
+                    font-size: 3vmin;
+                }
+
+                @media screen and (max-width: 499px){
+                    font-size: 4vmin;
+                }
+            }
+
+            p{
+                @media screen and (max-width: 938px){
+                    font-size: 2vmin;
+                }
+
+                @media screen and (max-width: 499px){
+                    font-size: 3vmin;
+                }
+            }
+        }
+
+        .c1{
+            background-color: #eae9c4;
+            transition: ease-in-out 1s;
+        }
+
+        .c1:hover{
+            background-color: #e7e488;
+        }
+
+        .c2{
+            background-color: #f8efec;
+            transition: ease-in-out 1s;
+        }
+
+        .c2:hover{
+            background-color: #d6b3a8;
+        }
+
+        .c3{
+            background-color: #c6ecf0;
+            transition: ease-in-out 1s;
+        }
+
+        .c3:hover{
+            background-color: #93bcc1;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.boys__description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    @media screen and (max-width: 618px){
+        flex-wrap: wrap;
+    }
+
+    img{
+        width: 30%;
+
+        @media screen and (max-width: 618px){
+            width: 80%;
+            margin-bottom: 1rem;
+        }
+    }
+
+    p{
+        margin-left: 15px;
+        font-size: 1.2rem;
+        padding-left: 15px;
+
+        @media screen and (max-width: 618px){
+            margin-left: 0;
+            padding: 5px;
+            text-align: center;
+        }
+    }
+}

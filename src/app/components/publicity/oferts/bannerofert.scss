@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+.bannerOfert__container{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-image: url("/party-icon-confetti.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media screen and (max-width: 850px){
+        flex-wrap: wrap;
+        background-image: none;
+    }
+
+    .publicity1{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        overflow: hidden;
+        background-color: #ff9eb4;
+        text-align: center;
+        font-family: "Pacifico", cursive;
+        margin-bottom: .5rem;
+        height: 53vh;
+
+        @media screen and (max-width: 850px){
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        h3{
+            margin-top: 2rem;
+            font-size: 2rem;
+            text-shadow: 0px 2px 5px #ff8265;
+
+            @media screen and (max-width: 850px){
+                padding-top: 35px;
+            }
+
+            @media screen and (max-width: 634px){
+                padding-top: 5px;
+            }
+
+        }
+
+        h4{
+            font-size: 1.5rem;
+            text-shadow: 0px 2px 5px #fffba6;
+            text-transform: uppercase;
+        }
+
+        img{
+            @media screen and (max-width: 1025px){
+                height: 55vh;
+            }
+
+            @media screen and (max-width: 850px){
+                width: 50%;
+            }
+
+            @media screen and (max-width: 421px){
+                width: 100%;
+            }
+        }
+    }
+    .publicity2{
+        display: flex;
+        flex-direction: column;
+        img{
+            width: 100%;
+            height: 25vh;
+            margin-bottom: .5rem;
+
+            @media screen and (max-width: 850px){
+                display: none;
+            }
+            
+        }
+        .banner1{}
+        .banner2{}
+    }
+    .publicity3{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        overflow: hidden;
+        background-color: #caefed;
+        text-align: center;
+        font-family: "Pacifico", cursive;
+        margin-bottom: .5rem;
+        height: 53vh;
+
+        @media screen and (max-width: 850px){
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h3{
+            margin-top: 2rem;
+            font-size: 2rem;
+            text-shadow: 0px 2px 5px #ffc83b;
+
+            @media screen and (max-width: 850px){
+                margin-top: 15rem;
+            }
+
+            @media screen and (max-width: 846px){
+                margin-top: 9rem;
+            }
+
+            @media screen and (max-width: 634px){
+                margin-top: 3rem;
+            }
+
+            @media screen and (max-width: 421px){
+                margin-top: 6rem;
+            }
+
+            @media screen and (max-width: 281px){
+                margin-top: 3rem;
+            }
+        }
+
+        h4{
+            font-size: 1.5rem;
+            text-shadow: 0px 2px 5px #ff73d3;
+            text-transform: uppercase;
+        }
+
+        img{
+            @media screen and (max-width: 846px){
+                height: 55vh;
+                width: 50%;
+            }
+
+            @media screen and (max-width: 421px){
+                width: 100%;
+            }
+        }
+    }
+}

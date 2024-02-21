@@ -1,0 +1,166 @@
+.footer__container{
+    //margin-top: 3rem;
+
+    .form__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #82d8eb;
+        padding: 15px;
+
+        @media screen and (max-width: 850px){
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        h4{
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fffff0;
+            text-shadow: 0px 5px 8px gray;
+            text-wrap: nowrap;
+
+            @media screen and (max-width: 850px){
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            @media screen and (max-width: 403px){
+                font-size: 7vmin;
+            }
+        }
+
+       .form{
+             width: 100%;
+             display: flex;
+             flex-direction: column;
+
+            @media screen and (max-width: 850px){
+                justify-content: center;
+                align-items: center;
+            }
+
+            div{
+                display: flex;
+                flex-direction: row-reverse;
+                
+                input{
+                    border: none;
+                    padding: 15px;
+                    border-radius: 25px;
+                    width: 50%;
+                    outline: none;
+                    background-color: #c5e9f1ac;
+
+                    @media screen and (max-width: 850px){
+                        width: 80vw;
+                    }
+                    
+                }
+
+                button{
+                    border: 2px dashed #fff6f2;
+                    padding: 15px;
+                    border-radius: 25px;
+                    position: absolute;
+                    background-color: #ef9fa9;
+                    color: #fff6f2;
+                    font-weight: 500;
+                    //transition: ease-in-out 1s;
+                }
+
+                button:hover{
+                    background-color: #fb6e7e;
+                }
+            }
+
+            .error__message,
+            .check__message{
+                margin-top: 1rem;
+                color: #c30026;
+                text-align: center;
+                font-weight: 500;
+                font-style: italic;
+            }
+            
+            .check__message{
+                color: #0c7571;
+            }
+        }
+    }
+
+    .footer_bg{
+        background-image: url("/watercolor-children-wallpaper.avif");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        ul{
+            padding-top: 2rem;
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            font-style: italic;
+            font-weight: bold;
+            color: #77767c;
+
+            @media screen and (max-width: 304px){
+                font-size: 5vmin;
+            }
+
+            li:hover{
+                border-bottom: 2px solid #d87edf;
+            }
+        }
+
+        .footer__section{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8rem;
+
+            @media screen and (max-width: 676px){
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 2rem;
+            }
+
+            .socials{
+                padding-left: 15px;
+                display: flex;
+                gap: 0.5rem;
+
+                @media screen and (max-width: 676px){
+                    margin-bottom: 1rem;
+                }
+    
+                svg{
+                    width: 2rem;
+
+                    @media screen and (max-width: 214px){
+                        width: 10vw;
+                    }
+                }
+
+                svg:hover{
+                    transform: scale(.8);
+                    background-color: #fff;
+                    border-radius: 85px;
+                }
+            }
+
+            p{
+                text-align: center;
+                padding-right: 15px;
+                color: #77767c;
+
+                @media screen and (max-width: 304px){
+                    font-size: 5vmin;
+                }
+            }
+        }
+        
+    }
+}
