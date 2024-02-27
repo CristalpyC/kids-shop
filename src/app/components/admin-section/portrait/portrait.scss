@@ -1,0 +1,29 @@
+.adminPortrait__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/violet-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+
+    img{
+        width: 30%;
+        border-radius: 280px;
+
+        @media screen and (max-width: 758px){
+            width: 50%;
+        }
+
+        @media screen and (max-width: 532px){
+            width: 70%;
+        }
+
+        @media screen and (max-width: 379px){
+            margin-top: -18rem;
+            width: 80%;
+        }
+    }
+}

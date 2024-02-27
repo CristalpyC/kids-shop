@@ -1,0 +1,7 @@
+.admin__section{
+    display: flex;
+
+    @media screen and (max-width: 850px){
+        flex-wrap: wrap;
+    }
+}

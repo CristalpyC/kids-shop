@@ -1,0 +1,155 @@
+.loginform__container{
+    width: 100%;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/023/810/461/original/minimalist-background-purple-abstract-design-free-vector.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+
+    .login__form{
+        padding: 55px 15px 100vh 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        @media screen and (max-width: 1003px){
+            padding-top: 100px;
+        }
+
+        img{
+            width: 20%;
+
+            @media screen and (max-width: 743px){
+                width: 40%;;
+            }
+
+            @media screen and (max-width: 400px){
+                width: 70%;;
+            }
+        }
+
+        input{
+            margin-bottom: 0.5rem;
+            width: 50%;
+            padding: 15px;
+            outline: none;
+            border-color: #5d3ed8;
+            border-radius: 25px;
+            margin-bottom: 3rem;
+
+            @media screen and (max-width: 800px){
+                width: 80%;
+            }
+
+            @media screen and (max-width: 534px){
+                width: 100%;
+            }
+        }
+
+        input::placeholder{
+            font-style: italic;
+        }
+
+        .error__message{
+            color: #8b0000;
+            font-weight: bold;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .invisible{
+            display: none;
+        }
+
+        .passwd__container{
+            margin-top: .5rem;
+            display: flex;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row-reverse;
+
+            @media screen and (max-width: 800px){
+                justify-content: center;
+                align-items: center;
+            }
+            
+            input{
+                position: absolute;
+                width: 49%;
+
+                @media screen and (max-width: 800px){
+                    width: 78%;
+                }
+
+                @media screen and (max-width: 534px){
+                    width: 97%;
+                }
+            }
+
+            .icon{
+                position: fixed;
+                display: flex;
+                width: 50%;
+                justify-content: right;
+                align-items: right;
+
+                .eye__icon{
+                    position: relative;
+                    top: -23px;
+                    right: 20px;
+
+                    @media screen and (max-width: 800px){
+                        left: 80px;
+                    }
+
+                    @media screen and (max-width: 624px){
+                        left: 70px;
+                    }
+
+                    @media screen and (max-width: 534px){
+                        left: 90px;
+                    }
+
+                    @media screen and (max-width: 404px){
+                        left: 70px;
+                    }
+
+                    @media screen and (max-width: 321px){
+                        left: 50px;
+                    }
+
+                    @media screen and (max-width: 248px){
+                        left: 30px;
+                    }
+                }
+            }
+        }
+
+        button{
+            margin-top: .5rem;
+            width: 50%;
+            padding: 15px;
+            background-color: #9c8be1;
+            border-radius: 25px;
+            border: none;
+            color: #ffff;
+            font-weight: bold;
+            transition: ease-in-out 1s;
+
+            @media screen and (max-width: 800px){
+                width: 80%;
+            }
+
+            @media screen and (max-width: 534px){
+                width: 100%;
+            }
+        }
+
+        button:hover{
+            background-color: #8471d4;
+        }
+    }
+
+}

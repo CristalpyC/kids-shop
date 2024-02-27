@@ -11,6 +11,7 @@ export const ActionsForm = () => {
        {name: "POST", path: "/post"},
        {name: "PUT", path: "/put"},
        {name: "DELETE", path: "/delete"},
+       {name: "BACK", path: "/"},
     ];
 
     const isActive = (path) => {
