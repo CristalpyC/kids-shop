@@ -1,6 +1,7 @@
 import { NewArrivals } from "./components/arrivals/NewArrivals";
 import { Banner } from "./components/banner/Banner";
 import { Category } from "./components/category/Category";
+import { Clothes } from "./components/clothes/Clothes";
 import { Footer } from "./components/footer/Footer";
 import { NavBar } from "./components/navbar/NavBar";
 import { BannerPub } from "./components/publicity/bannerPubHome/BannerPub";
@@ -18,7 +19,7 @@ export default function Home() {
         <Banner />
         <Category />
         <BannerPub />
-        Clothes
+        <Clothes />
         <BannerOfert />
         <NewArrivals />
         <Footer />

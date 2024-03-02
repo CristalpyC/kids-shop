@@ -94,6 +94,22 @@
         background-repeat: no-repeat;
         background-size: cover;
 
+        .up__container{
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .up__icon{
+                background-color: #aa6bd9c2;
+                color: #fff;
+            }
+
+            .up__icon:hover{
+                background-color: #b099bcc2;
+            }
+        }
+
         ul{
             padding-top: 2rem;
             display: flex;
@@ -117,7 +133,7 @@
         .footer__section{
             display: flex;
             justify-content: space-between;
-            margin-top: 8rem;
+            margin-top: 2rem;
 
             @media screen and (max-width: 676px){
                 flex-wrap: wrap;
@@ -127,6 +143,8 @@
                 margin-top: 2rem;
             }
 
+            
+
             .socials{
                 padding-left: 15px;
                 display: flex;
@@ -135,7 +153,7 @@
                 @media screen and (max-width: 676px){
                     margin-bottom: 1rem;
                 }
-    
+
                 svg{
                     width: 2rem;
 

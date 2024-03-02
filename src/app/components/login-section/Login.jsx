@@ -5,12 +5,14 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Loading } from "../loader/Loading";
 
 export const Login = () => {
     const [visible, setVisible] = useState(false);
     const [passwdVision, setPasswdVision] = useState("password");
     const [errors, setErrors] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
+    const [isLoading, setLoading] = useState(false);
     const router = useRouter();
 
     const userCredentials = {
@@ -50,6 +52,7 @@ export const Login = () => {
                 return error;
             }}
             onSubmit={(values) => {
+                setLoading(true);
                 if (values.username === user || values.passwd === passwd){
                     router.push("/admin");
                 }
@@ -73,6 +76,7 @@ export const Login = () => {
                     </div>
                     <button type="submit">Login</button>
                     <p className={errors ? "error__message" : "invisible"}>{errorMessage}</p>
+                    <Loading isLoading={isLoading} imgUrl="/loader-icon.gif"/>
                 </Form>
             </div>
         </Formik>

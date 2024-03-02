@@ -1,13 +1,16 @@
 import { prisma } from "@/libs/prisma";
 import { NextResponse } from "next/server";
 
-export async function GET(){
-    try{
-        const products = await prisma.product.findMany();
+export async function GET(request, {params}){
+    try {
+        const products = await prisma.product.findMany(); 
         return NextResponse.json(products);
-    } catch(error){
+        
+    } catch(error) {
         return NextResponse.json(error.message);
     }
+
+    //console.log(query)
 }
 
 export async function POST(request){

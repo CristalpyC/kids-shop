@@ -42,6 +42,8 @@ export const DeleteForm = () => {
           const deleteProduct = await fetch(`/api/products/${itemId}`, {method: "DELETE"})
           setErrorState(true);
           setErrormessage("Product has been removed! ✓");
+          //const y = await deleteProduct.json()
+          //console.log(y)
         
           setData({name : ''});
         }

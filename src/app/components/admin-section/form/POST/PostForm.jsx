@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import "./post.scss";
+import { Loading } from "@/app/components/loader/Loading";
 
 export const PostForm = () => {
   const val = {
@@ -36,7 +37,6 @@ export const PostForm = () => {
         setErrormessage("Data is empty ✖");
         
       } else{
-
         try{
           const res = await fetch("/api/products", {
             method: "POST",
@@ -53,17 +53,15 @@ export const PostForm = () => {
           });
 
           setData(val);
-
-          //const productsData = await res.json();
-          //console.log(productsData);
-
           setErrorState(true);
           setErrormessage("Data has been send! ✓");
+          setTimeout(() => {
+            setErrormessage(null);
+          }, 2000);
 
         } catch (error){
           console.log('ERROR: ', error.message);
         }
-        
       }
     }); 
   }
