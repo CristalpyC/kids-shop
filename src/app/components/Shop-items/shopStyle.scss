@@ -1,0 +1,180 @@
+.shopitems__container{
+    margin: 3rem 0 3rem 0rem;
+
+    @media screen and (max-width: 850px){
+        background-image: url("https://img.freepik.com/free-vector/colorful-confetti-background-with-text-space_1017-32374.jpg");
+        background-repeat: no-repeat;
+        background-position: cover;
+    }
+
+    .infos{
+        display: flex;
+
+        @media screen and (max-width: 850px){
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img__info{
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            padding: 0 15px 15px 0;
+
+            @media screen and (max-width: 850px){
+                flex-wrap: wrap;
+                justify-content: left;
+                align-items: left;
+            }
+    
+            img{
+                width: 80%;
+                height: auto;
+                margin-left: 1rem;
+
+                @media screen and (max-width: 952px){
+                    width: 85%;
+                }
+
+                @media screen and (max-width: 850px){
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
+
+                /*@media screen and (max-width: 887px){
+                    width: 90%;
+                }*/
+            }
+    
+            .d{
+                display: flex;
+                flex-direction: column;
+
+                @media screen and (max-width: 850px){
+                    flex-direction: row;
+                    //padding-left: 35px;
+                    justify-content: left;
+                    align-items: left;
+                }
+    
+                img{
+                    border: dashed 2px #e76737;
+                    width: 75%;
+                    margin-bottom: 0.5rem;
+
+                    @media screen and (max-width: 952px){
+                        width: 80%;
+                    }
+
+                    @media screen and (max-width: 850px){
+                        width: 20%;
+                    }
+                }
+            }
+        }
+        .info__container{
+            width: 100%;
+
+            @media screen and (max-width: 850px){
+                padding: 15px;
+            }
+
+            h2,
+            h3,
+            p,
+            .size__container,
+            .quantity__container{
+                margin-bottom: 0.8rem;
+            }
+
+            h2{
+                font-size: 2rem;
+                color: #033851;
+            }
+
+            h3{
+                font-size: 2.5rem;
+                color: #004666;
+            }
+
+            p{
+                color: #7a7a75;
+            }
+
+            span{
+                font-weight: bold;
+            }
+
+            .size__container{
+                button{
+                    margin-left: 0.2rem;
+                    padding: 15px;
+                    background-color: white;
+                    text-align: center;
+                    border: dashed 2px #3d3462;
+                    //border-color: #004666;
+                    cursor: pointer;
+                    text-wrap: nowrap;
+                }
+            }
+
+            .quantity__container{
+                button{
+                    padding: 15px;
+                    background-color: #000;
+                    text-align: center;
+                    border-color: #7a7a75;
+                    cursor: pointer;
+                    color: #fff;
+                    border: none;
+                }
+
+                button:hover{
+                    background-color: #5e5d5d;
+                }
+
+                .middle__btn{
+                    width: 20%;
+                    background-color: #ffff;
+                    color: #272626;
+                    border: solid .5px;
+                }
+
+                .middle__btn:hover{
+                    background-color: #fff;
+                }
+            }
+
+            .buy__buttons{
+                button{
+                    margin-left: .2rem;
+                    padding: 15px;
+                    width: 40%;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .cart__btn{
+                    background-color: #ecb25d;
+                    color: #fff;
+                }
+
+                .cart__btn:hover{
+                    background-color: #c49755;
+                }
+
+                .buy__btn{
+                    background-color: #033851;
+                    color: #fff;
+                }
+
+                .buy__btn:hover{
+                    background-color: #032433;
+                }
+            }
+        } 
+
+    }
+    
+}

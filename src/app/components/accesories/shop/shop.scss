@@ -2,7 +2,7 @@
     margin-top: 3rem;
     //margin-bottom: 4rem;
     
-    .shop__title{
+    .accshop__title{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -34,12 +34,12 @@
         }
     }
 
-    .select{
+    .acc__select{
         text-align: right;
         padding-right: 5px;
 
         select{
-            color: #0b1898;
+            color: #818b08;
             font-size: 1rem;
             outline: none;
             border: dashed 2px #cae619;
@@ -54,7 +54,7 @@
         }
     }
 
-    .images__container{
+    .accimages__container{
         display: flex;
         justify-content: center;
         align-items: center;

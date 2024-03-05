@@ -38,11 +38,11 @@ export const AccShop = () => {
 
   return (
     <div className="shop__container">
-        <div className="shop__title">
+        <div className="accshop__title">
             <button>Shop</button>
             <h2>now</h2>
         </div>
-        <div className="select" onClick={handleSelect}>
+        <div className="acc__select" onClick={handleSelect}>
             <select>
                 <option value="allc">All</option>
                 <option value="cap">Caps</option>
@@ -52,8 +52,8 @@ export const AccShop = () => {
             </select>
         </div>
         {/*Espacio para incluir las mercancias */}
-        <Load isLoading={loading} url="https://www.starfall.com/h/_images/web-system-wide-loading-stars-GIF.gif?1498454704922"/>
-        <div className="images__container">
+        <Load isLoading={loading} url="/loading-gif-icon-18.jpg"/>
+        <div className="accimages__container">
                 {products && products.map((item, index) => (
                     <div className="card" key={index}>
                         <img src={item.img1} alt="" onChange={() => console.log("eff")}/>

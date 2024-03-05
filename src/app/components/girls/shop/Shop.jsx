@@ -2,11 +2,14 @@
 import { useEffect, useState } from "react";
 import "./shop.scss";
 import { Load } from "../loading/Load";
+import { useRouter } from "next/navigation";
 
 export const Shop = () => {
     const [products, setProducts] = useState(null);
     const [optionsValues, setValues] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [items, setItems] = useState(null);
+    const router = useRouter();
 
     const handleSelect = async (e) => {
         setValues(e.target.value);
@@ -30,17 +33,6 @@ export const Shop = () => {
         
     }, [optionsValues]);
 
-    /*useEffect(() => {
-        const handleGirlsData = async () => {
-            const res = await fetch(`api/products/${optionsValues}`);
-            const data = await res.json();
-
-            setProducts(data);
-        }
-
-        handleGirlsData(); 
-    }, []);*/
-
     useEffect(() => {
         if (products !== null){
             console.log(products)
@@ -48,16 +40,24 @@ export const Shop = () => {
     }, [products]);
 
     
+    const v = (value) => {
+        setItems(value);
+        router.push(`/${value}`);
+    }
 
-    
+    useEffect(() => {
+        if (items !== null){
+            console.log(items)
+        }
+    }, [items]);
 
   return (
     <div className="shop__container">
-        <div className="shop__title">
+        <div className="girlshop__title">
             <button>Shop</button>
             <h2>now</h2>
         </div>
-        <div className="select">
+        <div className="girl__select">
             <select onClick={handleSelect}>
                 <option value="all">All</option>
                 <option value="skirt">Skirt</option>
@@ -71,10 +71,10 @@ export const Shop = () => {
         </div>
         {/*Espacio para incluir las mercancias */}
         <Load isLoading={loading} url="/flower-giphy.gif"/>
-        <div className="images__container">
+        <div className="girlimages__container">
                 {products && products.map((item, index) => (
-                    <div className="card" key={index}>
-                        <img src={item.img1} alt="" />
+                    <div className="card" key={index} onClick={() => v(item.nombre)}>
+                        <img src={item.img1} alt={item.nombre}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>
                             <h4>{item.nombre}</h4>
