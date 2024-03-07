@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Load } from "../../girls/loading/Load";
 import "./shop.scss";
+import 'animate.css';
 
 export const AccShop = () => {
   const [products, setProducts] = useState(null);
@@ -55,7 +56,7 @@ export const AccShop = () => {
         <Load isLoading={loading} url="/loading-gif-icon-18.jpg"/>
         <div className="accimages__container">
                 {products && products.map((item, index) => (
-                    <div className="card" key={index}>
+                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index}>
                         <img src={item.img1} alt="" onChange={() => console.log("eff")}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>

@@ -1,6 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
 import "./shop.scss";
+import 'animate.css';
+import { Zoom } from "react-awesome-reveal";
 import { Load } from "../loading/Load";
 import { useRouter } from "next/navigation";
 
@@ -53,10 +55,12 @@ export const Shop = () => {
 
   return (
     <div className="shop__container">
-        <div className="girlshop__title">
-            <button>Shop</button>
-            <h2>now</h2>
-        </div>
+        <Zoom>
+            <div className="girlshop__title">
+                <button>Shop</button>
+                <h2>now</h2>
+            </div>
+        </Zoom>
         <div className="girl__select">
             <select onClick={handleSelect}>
                 <option value="all">All</option>
@@ -69,11 +73,11 @@ export const Shop = () => {
                 <option value="pajama">Pajamas</option>
             </select>
         </div>
-        {/*Espacio para incluir las mercancias */}
+        {/*clothes section */}
         <Load isLoading={loading} url="/flower-giphy.gif"/>
         <div className="girlimages__container">
                 {products && products.map((item, index) => (
-                    <div className="card" key={index} onClick={() => v(item.nombre)}>
+                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => v(item.nombre)}>
                         <img src={item.img1} alt={item.nombre}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>
@@ -82,12 +86,14 @@ export const Shop = () => {
                     </div>
                 ))}
         </div>
+        
         <div className="girls__banner">
             <div>
-                 <h1>FREE SHOPPING on orders $59+</h1>
-                 <img src="/Comic-WOW-PNG-Clipart.png" alt="" />
-            </div>
+                <h1>FREE SHOPPING on orders $59+</h1>
+                <img src="/Comic-WOW-PNG-Clipart.png" alt="" />
+            </div> 
         </div>
+        
     </div>
   )
 }

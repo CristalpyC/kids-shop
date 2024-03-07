@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 
 .boysbanner__container{
-    height: 80vh;
+    height: 90vh; //80
     background-color: #fffbe6;
     overflow: hidden;
 
-    @media screen and (max-width: 731px){
-        height: 90vh;
-    }
 
     .boys__container{
         background-image: url("/boys-confetti.png");
@@ -33,8 +30,12 @@
             width: 35%;
             height: 75vh;
 
-            @media screen and (max-width: 904px){
+            @media screen and (max-width: 1117){//904
                 width: 45%;
+            }
+
+            @media screen and (max-width: 933px){
+                width: 40%;
             }
 
             @media screen and (max-width: 495px){

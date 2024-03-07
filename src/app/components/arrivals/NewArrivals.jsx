@@ -1,15 +1,19 @@
 "use client"
 import { useEffect, useState } from "react";
 import "./arrivals.scss";
+import { Load } from "../girls/loading/Load";
 
 export const NewArrivals = () => {
   const [productsData, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const handleData = async () => {
       const res = await fetch("api/products/arrivals", {method:"GET"});
       const data = await res.json();
-      setData(data)
+      setData(data);
+      setLoading(false);
       return productsData;
       //return data
     }
@@ -19,7 +23,7 @@ export const NewArrivals = () => {
 
   useEffect(() => {
     if (productsData !== null){
-      console.log("D: ", productsData)
+      console.log(productsData)
     }
   }, [productsData]);
 
@@ -30,6 +34,7 @@ export const NewArrivals = () => {
         <span className="span"><span className="border">New</span></span> 
             arrivals
       </h1>
+      <Load isLoading={loading} url="/cute-gif.gif"/>
       <div className="images__container">
         {productsData && productsData.map((item, index) => (
           <div className="card" key={index}>

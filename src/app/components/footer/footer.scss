@@ -90,19 +90,24 @@
     }
 
     .footer_bg{
+        ///watercolor-children-wallpaper.avif
         background-image: url("/watercolor-children-wallpaper.avif");
         background-repeat: no-repeat;
         background-size: cover;
+        padding-bottom: 15px;
+
 
         .up__container{
-            margin-top: 2rem;
+            padding-top: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
 
             .up__icon{
+                border-radius: 39% 61% 70% 30% / 30% 30% 70% 70% ;
                 background-color: #aa6bd9c2;
                 color: #fff;
+                font-size: 2rem;
             }
 
             .up__icon:hover{
@@ -110,7 +115,7 @@
             }
         }
 
-        ul{
+        /*ul{
             padding-top: 2rem;
             display: flex;
             list-style: none;
@@ -128,7 +133,7 @@
             li:hover{
                 border-bottom: 2px solid #d87edf;
             }
-        }
+        }*/
 
         .footer__section{
             display: flex;
@@ -156,6 +161,10 @@
 
                 svg{
                     width: 2rem;
+                    background-color: #d9ebf4;
+                    border-radius: 85px;
+                    padding: 5px;
+                    box-shadow: 0px 2px 5px gray;
 
                     @media screen and (max-width: 214px){
                         width: 10vw;
@@ -164,8 +173,7 @@
 
                 svg:hover{
                     transform: scale(.8);
-                    background-color: #fff;
-                    border-radius: 85px;
+                    background-color: #fbf6f9;
                 }
             }
 

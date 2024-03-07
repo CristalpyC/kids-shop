@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
@@ -20,6 +20,8 @@
     "formik": "^2.4.5",
     "next": "14.1.0",
     "react": "^18",
+    "react-animation-on-scroll": "^5.1.0",
+    "react-awesome-reveal": "^4.2.8",
     "react-dom": "^18",
     "react-router-dom": "^6.22.1",
     "sass": "^1.71.0",

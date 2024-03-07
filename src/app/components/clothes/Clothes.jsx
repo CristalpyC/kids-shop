@@ -1,12 +1,16 @@
 "use client"
 import { useEffect, useState } from "react";
 import "./clothes.scss";
+import 'animate.css';
+import { Load } from "../girls/loading/Load";
 
 export const Clothes = () => {
     const [productArray, setProductArray] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const handleData = async () => {
+            setLoading(true);
             try {
                 const res = await fetch("api/products/stock", { method: "GET" });
                 const data = await res.json();
@@ -15,6 +19,7 @@ export const Clothes = () => {
             } catch (error) {
                 console.log(error.message);
             }
+            setLoading(false);
         };
 
         handleData();
@@ -32,6 +37,7 @@ export const Clothes = () => {
             Shop 
             <span className="span"><span className="border">with us</span></span>
         </h1>
+        <Load isLoading={loading} url="/cute-gif.gif"/>
         <div className="images__container">
             {productArray && productArray.map((items, index) => (
                 <div className="card" key={index}>

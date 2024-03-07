@@ -1,11 +1,12 @@
 import "./banner.scss";
+import 'animate.css';
 
 export const Banner = () => {
   return (
     <div className="accesoriesbanner__container">
         <div className="accesories__container">
-            <img src="/kids-boys-and-girls-hd-image.png" alt="" />
-            <div>
+            <img className="animate__animated animate__bounceInUp" src="/kids-boys-and-girls-hd-image.png" alt="" />
+            <div className="animate__animated animate__pulse">
                 <h1>Elevate</h1>
                 <h2>Their style!</h2>
                 <p>
@@ -15,6 +16,7 @@ export const Banner = () => {
                   fashion and functionality.
                 </p>
             </div>
+            <div className="wave"></div>
         </div>
     </div>
   )

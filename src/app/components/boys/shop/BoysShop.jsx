@@ -1,6 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
 import "./shop.scss";
+import 'animate.css';
+import { Zoom } from "react-awesome-reveal";
 import { Load } from "../../girls/loading/Load";
 
 export const BoysShop = () => {
@@ -38,10 +40,12 @@ export const BoysShop = () => {
 
   return (
     <div className="shop__container">
-        <div className="shop__title">
-            <button>Shop</button>
-            <h2>now</h2>
-        </div>
+        <Zoom>
+            <div className="shop__title">
+                <button>Shop</button>
+                <h2>now</h2>
+            </div>
+        </Zoom>
         <div className="select" onClick={handleSelect}>
             <select>
                 <option value="allb">All</option>
@@ -56,7 +60,7 @@ export const BoysShop = () => {
         <Load isLoading={loading} url="/loading-gif.gif"/>
         <div className="images__container">
                 {products && products.map((item, index) => (
-                    <div className="card" key={index}>
+                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index}>
                         <img src={item.img1} alt="" onChange={() => console.log("eff")}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>

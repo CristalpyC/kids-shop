@@ -1,24 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 
 .accesoriesbanner__container{
-    height: 80vh;
-    background-color: #f8efc3;
+    height: 95vh;//80
+    background-color: #e0fdf5;//#f8efc3
     overflow: hidden;
 
-    @media screen and (max-width: 731px){
+    /*@media screen and (max-width: 731px){
         height: 90vh;
+    }*/
+
+    .wave{
+        background-image: url("/wave.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        margin-bottom: -5rem;
+        right: 0;
+        bottom: 0;
+
+        //Arreglar esta parte
+        @media screen and (max-width: 731px){
+            display: none;
+        }
     }
 
     .accesories__container{
         background-image: url("/confetti_PNG87038.png");
         background-repeat: no-repeat;
-        //background-size: cover;
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 5rem;
+        //margin-top: 5rem;
 
         @media screen and (max-width: 731px){
             flex-direction: column-reverse;
@@ -33,7 +50,8 @@
             width: 35%;
             height: 75vh;
 
-            @media screen and (max-width: 930px){
+
+            @media screen and (max-width: 1117px){
                 width: 45%;
             }
 

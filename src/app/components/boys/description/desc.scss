@@ -8,8 +8,15 @@
         flex-wrap: wrap;
     }
 
+    .fade{
+        @media screen and (max-width: 618px){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
     img{
-        width: 30%;
+        width: 100%;
 
         @media screen and (max-width: 618px){
             width: 80%;

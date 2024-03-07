@@ -10,7 +10,7 @@ export default function ItemShop() {
   return (
     <>
       <NavBar />
-      <div>
+      <div >
         <ShopItems />
         <Footer />
       </div>

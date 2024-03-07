@@ -1,9 +1,13 @@
+"use client"
 import "./services.scss";
-
+import { Fade, Zoom } from "react-awesome-reveal";
 export const Services = () => {
   return (
     <div className="services__container">
-        <h1>Discover the Difference</h1>
+        <Fade>
+            <h1>Discover the Difference</h1>
+        </Fade>
+        <Zoom>
         <div className="cards">
             <div className="card c1">
                 <img src="/flower.png" alt="" />
@@ -30,6 +34,7 @@ export const Services = () => {
                      while looking and feeling fantastic.</p>
             </div>
         </div>
+        </Zoom>
     </div>
   )
 }
