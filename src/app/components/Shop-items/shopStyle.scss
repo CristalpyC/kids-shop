@@ -1,22 +1,14 @@
-//@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-//@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 .shopitems__container{
-
     margin: 3rem 0 0rem 0rem; //3
-    //font-family: "Merriweather", serif;
     font-family: "Pacifico", cursive;
-    /*@media screen and (max-width: 1056px){
-        background-image: url("https://i.pinimg.com/originals/27/3d/6a/273d6a796ff071de57c6c52c2660fecb.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }*/
 
     .infos{
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 8rem;
 
         @media screen and (max-width: 850px){
             flex-wrap: wrap;
@@ -31,39 +23,21 @@
             padding: 0 15px 15px 0;
 
             @media screen and (max-width: 1056px){
-                /*width: 50%;
-                margin-bottom: 1rem;*/
                 display: none;
             }
 
-            /*@media screen and (max-width: 850px){
-                flex-wrap: wrap;
-                justify-content: left;
-                align-items: left;
-            }*/
-    
             img{
-                width: 80%;
+                width: 100%;
                 height: auto;
                 margin-left: 1rem;
 
                 @media screen and (max-width: 1250px){
                     width: 100%;
                 }
-
-                /*@media screen and (max-width: 1056px){
-                    width: 50%;
-                    margin-bottom: 1rem;
-                }*/
-
-                /*@media screen and (max-width: 887px){
-                    width: 90%;
-                }*/
             }
         }
         .info__container{
             width: 100%;
-            //margin-left: 5rem;
 
             @media screen and (max-width: 1250px){
                 margin-left: 3rem;
@@ -77,10 +51,6 @@
                 margin-left: 0;
             }
 
-            /*@media screen and (max-width: 420px){
-                padding: 0px;
-            }*/
-
             .information{
                 @media screen and (max-width: 1056px){
                     display: flex;
@@ -89,18 +59,12 @@
                     mix-blend-mode: multiply;
                 }
 
-                
-
                 @media screen and (max-width: 727px){
                     flex-wrap: wrap;
                     flex-direction: column-reverse;
                     justify-content: left;
                     align-items: left; 
                 }
-
-                /*@media screen and (max-width: 420px){
-                    padding: 0px;
-                }*/
             }
 
             .img{
@@ -109,13 +73,12 @@
 
                     @media screen and (max-width: 1056px){
                         display: block;
-                        //width: 100%;
                     }
 
-                    @media screen and (max-width: 727px){//559
+                    @media screen and (max-width: 727px){
                         margin: auto;
                         width: 70%;
-                        margin-bottom: 12rem; //45%; //9rem
+                        margin-bottom: 12rem;
                     }
 
                     @media screen and (max-width: 626px){
@@ -236,7 +199,6 @@
                     background-color: white;
                     text-align: center;
                     border: solid 2px #7760a9;
-                    //border-color: #004666;
                     cursor: pointer;
                     text-wrap: nowrap;
 
@@ -248,6 +210,10 @@
                     @media screen and (max-width: 736px){
                         margin-bottom: 0.2rem;
                     }
+                }
+
+                button:focus{
+                    background-color:#d2cbe2
                 }
             }
 
@@ -345,9 +311,6 @@
         }
 
         div{
-            /*display: flex;
-            justify-content: center;
-            align-items: center;*/
 
             @media screen and (max-width: 727px){
                 display: flex;
@@ -371,14 +334,9 @@
             .img1{
                 margin-bottom: 5rem;
             }
-
-            .img2{
-                //margin-top: 8rem;//5
-            }
         }
 
         p{
-            //width: 95%;
             margin-top: 1rem;
             font-size: 1.8rem;
             color: #1b213e;
@@ -414,7 +372,6 @@
     }
     
     .itemsimages__container{
-        //https://childrens-drawing.com/drawing/image/il_3.png
         background-image: url("https://childrens-drawing.com/drawing/image/il_3.png");
         background-repeat: no-repeat;
         background-size: cover;
@@ -435,7 +392,6 @@
             margin-bottom: 1rem;
             flex-direction: column;
             transition: ease-in-out 2s;
-            //border: dashed 2px #eb80f6;
 
             @media screen and (max-width: 905px){
                 width: 40%;
@@ -450,7 +406,6 @@
                 width: 100%;
                 height: 35vh;
                 margin-bottom: 1rem;
-                //border: dashed 2px #eb80f6;
 
                 @media screen and (max-width: 1138px){
                     height: 25vh;
@@ -470,8 +425,6 @@
             }
 
             .info{
-                //background-color: #d8c8ff;
-                //padding: 25px;
                 text-align: center;
 
                 h3{

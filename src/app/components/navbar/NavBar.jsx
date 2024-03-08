@@ -1,6 +1,6 @@
 "use client"
-
 import "./navbar.scss";
+import 'animate.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import Cart from "./Cart";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export const NavBar = () => {
   return (
     <>
       <div className="navbar__container">
-        <img onClick={() => router.push("/")} src="/logo.png" alt="" />
+        <img className="animate__animated animate__flipInY" onClick={() => router.push("/")} src="/logo.png" alt="" />
         <ul>
             <li className={isActive(pages[0].path) ? "active__link" : ""}><Link href={pages[0].path}>Girls</Link></li>
             <li className={isActive(pages[1].path) ? "active__link" : ""}><Link href={pages[1].path}>Boys</Link></li>

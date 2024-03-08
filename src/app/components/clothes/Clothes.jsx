@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import "./clothes.scss";
-import 'animate.css';
+import { Zoom } from "react-awesome-reveal";
 import { Load } from "../girls/loading/Load";
 
 export const Clothes = () => {
@@ -33,19 +33,21 @@ export const Clothes = () => {
 
   return (
     <div className="clothes__container">
+        <Zoom>
         <h1>
             Shop 
             <span className="span"><span className="border">with us</span></span>
         </h1>
+        </Zoom>
         <Load isLoading={loading} url="/cute-gif.gif"/>
         <div className="images__container">
             {productArray && productArray.map((items, index) => (
                 <div className="card" key={index}>
                     <img src={items.img1} alt="" />
-                    <div className="info">
+                    <Zoom className="info">
                         <h3>{`$${items.price}`}</h3>
                         <h4>{items.nombre}</h4>
-                    </div>
+                    </Zoom>
                 </div>
             ))}
         </div>

@@ -1,21 +1,39 @@
+"use client"
 import "./shopStyle.scss";
+import "animate.css";
+import { Zoom, Fade, JackInTheBox } from "react-awesome-reveal";
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import SavingsIcon from '@mui/icons-material/Savings';
 import PeopleIcon from '@mui/icons-material/People';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import { useState } from "react";
 
 export const ShopItems = () => {
+    const [sum, setSum] = useState(1);
+
+    const handleSum = () => {
+        setSum(sum + 1);
+    }
+
+    const handleRest = () => {
+        setSum(sum - 1);
+
+        if (sum <= 1){
+            setSum(1);
+        }
+    }
+
   return (
-    <div className="shopitems__container">
+    <div className="shopitems__container" >
         <div className="infos">
             <div className="img__info">
-                    <img src="https://m.media-amazon.com/images/I/6183zC+RrUL._AC_UY350_.jpg" alt="" />
+                    <img className="animate__animated animate__zoomIn" src="https://i5.walmartimages.com/asr/4b4879c4-1667-492d-8297-20689080719f.37d60bf8c09d07e9a2a875251e9f2024.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" alt="" />
             </div>  
             <div className="info__container">
                 <div className="information">
                 <div>
                     <h2>Plaid Flannel Shirt</h2>
-                    <h3>$25.99</h3>
+                    <h3 className="animate__animated animate__fadeIn">$25.99</h3>
                     <p>Product Type: Dress</p>
                     <p><span>Size</span></p>
                     <div className="size__container">
@@ -26,9 +44,9 @@ export const ShopItems = () => {
                     </div>
                     <p><span>Quantity</span></p>
                     <div className="quantity__container">
-                        <button>+</button>
-                        <button className="middle__btn">1</button>
-                        <button>-</button>
+                        <button onClick={handleSum}>+</button>
+                        <button className="middle__btn">{sum}</button>
+                        <button onClick={handleRest}>-</button>
                     </div>
                 </div>
                     <div className="img">
@@ -63,6 +81,7 @@ export const ShopItems = () => {
                     </div>
             </div>
         </div>
+        <Zoom>
         <div className="desc__container">
                 <div>
                     <img className="img1" src="https://i5.walmartimages.com/asr/4b4879c4-1667-492d-8297-20689080719f.37d60bf8c09d07e9a2a875251e9f2024.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" alt="" />
@@ -74,28 +93,37 @@ export const ShopItems = () => {
                     flared skirt and a cute bow detail at the waist.
                 </p> 
         </div>
-        <h1>You may <span className="p1">also</span> <span className="p2">like</span></h1> 
+        </Zoom>
+        <Fade>
+            <h1>You may <span className="p1">also</span> <span className="p2">like</span></h1> 
+        </Fade>
         <div className="itemsimages__container">
                 <div className="card">
+                <JackInTheBox>
                         <img src="https://i5.walmartimages.com/seo/Toddler-Boys-Girls-Tops-Flannel-Jacket-Plaid-Long-Sleeve-Lapel-Button-Down-Shacket-Baby-Pockets-Coat-Outwear-Kids-Clothes-Size-5-6T_d66e333d-3907-43ba-8be3-791822222d6a.76bcf5f29d0301a337ac7ca620d09b48.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" />
                         <div className="info">
                             <h3>$25.58</h3>
                             <h4>ok</h4>
                         </div>
+                </JackInTheBox>
                 </div>
                 <div className="card">
+                <JackInTheBox>
                         <img src="https://i5.walmartimages.com/seo/Toddler-Boys-Girls-Tops-Flannel-Jacket-Plaid-Long-Sleeve-Lapel-Button-Down-Shacket-Baby-Pockets-Coat-Outwear-Kids-Clothes-Size-5-6T_d66e333d-3907-43ba-8be3-791822222d6a.76bcf5f29d0301a337ac7ca620d09b48.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" />
                         <div className="info">
                             <h3>$25.58</h3>
                             <h4>ok</h4>
                         </div>
+                </JackInTheBox>
                 </div>
                 <div className="card">
+                <JackInTheBox>
                         <img src="https://i5.walmartimages.com/seo/Toddler-Boys-Girls-Tops-Flannel-Jacket-Plaid-Long-Sleeve-Lapel-Button-Down-Shacket-Baby-Pockets-Coat-Outwear-Kids-Clothes-Size-5-6T_d66e333d-3907-43ba-8be3-791822222d6a.76bcf5f29d0301a337ac7ca620d09b48.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" />
                         <div className="info">
                             <h3>$25.58</h3>
                             <h4>ok</h4>
                         </div>
+                </JackInTheBox>
                 </div>
         </div>
         {/*<div className="items__container">
