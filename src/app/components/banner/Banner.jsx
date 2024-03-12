@@ -1,6 +1,7 @@
 "use client"
 import "./banner.scss";
 import "animate.css";
+import { Zoom } from "react-awesome-reveal";
 
 export const Banner = () => {
   return (
@@ -14,7 +15,9 @@ export const Banner = () => {
                     Our high quality and stylish clothing for <br />
                     Boy & Girl collection
                 </p>
+                <Zoom>
                 <button className="animate__animated animate__heartBeat animate__repeat-2">Shop now</button>
+                </Zoom>
             </div>
             <img className="animate__animated animate__fadeInUpBig" src="/kidsModel.png" alt="" />
         </div>

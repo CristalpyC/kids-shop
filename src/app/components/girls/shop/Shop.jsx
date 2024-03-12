@@ -5,6 +5,7 @@ import 'animate.css';
 import { Zoom } from "react-awesome-reveal";
 import { Load } from "../loading/Load";
 import { useRouter } from "next/navigation";
+import { useInfo } from "../../context/useInfo";
 
 export const Shop = () => {
     const [products, setProducts] = useState(null);
@@ -12,6 +13,7 @@ export const Shop = () => {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const router = useRouter();
+    const { itemsInfo, setItemsInfo } = useInfo();
 
     const handleSelect = async (e) => {
         setValues(e.target.value);
@@ -37,19 +39,27 @@ export const Shop = () => {
 
     useEffect(() => {
         if (products !== null){
-            console.log(products)
+            console.log(products);
         }
     }, [products]);
 
+    useEffect(() => {
+        if (itemsInfo !== null){
+            console.log("D: ", itemsInfo);
+        }
+    }, [itemsInfo]);
+
     
-    const v = (value) => {
+    const handleRouter = (value) => {
         setItems(value);
+        setItemsInfo(value);
+        
         router.push(`/${value}`);
     }
 
     useEffect(() => {
         if (items !== null){
-            console.log(items)
+            console.log(items);
         }
     }, [items]);
 
@@ -77,7 +87,7 @@ export const Shop = () => {
         <Load isLoading={loading} url="/flower-giphy.gif"/>
         <div className="girlimages__container">
                 {products && products.map((item, index) => (
-                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => v(item.nombre)}>
+                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => handleRouter(item.nombre)}>
                         <img src={item.img1} alt={item.nombre}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>

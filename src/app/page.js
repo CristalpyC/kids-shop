@@ -6,6 +6,7 @@ import { Footer } from "./components/footer/Footer";
 import { NavBar } from "./components/navbar/NavBar";
 import { BannerPub } from "./components/publicity/bannerPubHome/BannerPub";
 import { BannerOfert } from "./components/publicity/oferts/BannerOfert";
+import { Testimonial } from "./components/testimonial/Testimonial";
 
 export const metadata = {
   title: "Kids zone - Home",
@@ -22,6 +23,7 @@ export default function Home() {
         <Clothes />
         <BannerOfert />
         <NewArrivals />
+        <Testimonial />
         <Footer />
       </div>
     </>

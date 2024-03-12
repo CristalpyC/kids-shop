@@ -1,3 +1,4 @@
+import { ItemsInfoProvider } from "../components/context/useInfo.jsx";
 import { Footer } from "../components/footer/Footer.jsx";
 import { Services } from "../components/girls/arrivals/Services.jsx";
 import { Banner } from "../components/girls/banner/Banner.jsx";
@@ -11,7 +12,7 @@ export const metadata = {
 
 export default function GirlsSection() {
   return (
-    <>
+    <ItemsInfoProvider>
       <NavBar />
       <div>
         <Banner />
@@ -19,6 +20,6 @@ export default function GirlsSection() {
         <Shop />
         <Footer />
       </div>
-    </>
+    </ItemsInfoProvider>
   );
 }

@@ -193,13 +193,23 @@ export async function GET(request, {params}){
 
             return NextResponse.json(watches);
         } else {
-            const products = await prisma.product.findUnique({
-                where: {
-                    id: Number(params.id)
+                if (!isNaN(params.id)){
+                    const products = await prisma.product.findUnique({
+                        where: {
+                            id: Number(params.id)
+                        }
+                    });
+        
+                    return NextResponse.json(products);
+                } else{
+                    const clothes = await prisma.product.findMany({
+                        where: {
+                            nombre: params.id
+                        }
+                    });
+                    return NextResponse.json(clothes);
                 }
-            });
-
-            return NextResponse.json(products);
+            
         }
         
     } catch(error){

@@ -3,6 +3,16 @@
 .shopitems__container{
     margin: 3rem 0 0rem 0rem; //3
     font-family: "Pacifico", cursive;
+    /*background-image: url("https://w0.peakpx.com/wallpaper/127/305/HD-wallpaper-white-flowers-branches-in-white-background-white-aesthetic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;*/
+
+    .collection__icon{
+        img{
+            width: 5%;
+            padding-left: 15px;
+        }
+    }
 
     .infos{
         display: flex;
@@ -67,6 +77,7 @@
                 }
             }
 
+
             .img{
                 img{
                     display: none;
@@ -103,6 +114,16 @@
             .quantity__container{
                 margin-bottom: 0.8rem;
             }
+
+           /* .stars{
+                padding: 15px;
+                display: flex;
+                justify-content: right;
+                align-items: right;
+                img{
+                    width: 10%;
+                }
+            }*/
 
             .shipping__container{
                 margin-top: 2rem;
@@ -174,7 +195,7 @@
 
             h3{
                 font-size: 2.5rem;
-                color: #7760a9;
+                color:  #7760a9;// #7760a9;
 
                 @media screen and (max-width: 443px){
                     font-size: 8vmin;
@@ -183,6 +204,11 @@
 
             p{
                 color: #7a7a75;
+
+                .dress__span{
+                    color: #1d5691;
+                }
+
                 @media screen and (max-width: 443px){
                     font-size: 5vmin;
                 }
@@ -212,9 +238,11 @@
                     }
                 }
 
-                button:focus{
+                button:focus,
+                button:hover{
                     background-color:#d2cbe2
                 }
+
             }
 
             .quantity__container{
@@ -299,6 +327,7 @@
             flex-wrap: wrap;
             text-align: center;
             flex-direction: column-reverse;
+            padding: 0px 8px 0px 8px;
         }
 
         @media screen and (max-width: 727px){

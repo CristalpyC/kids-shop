@@ -6,10 +6,13 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import SavingsIcon from '@mui/icons-material/Savings';
 import PeopleIcon from '@mui/icons-material/People';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useInfo } from "../context/useInfo";
 
 export const ShopItems = () => {
     const [sum, setSum] = useState(1);
+    const [dataArray, setDataArray] = useState(null);
+    const { itemsInfo } = useInfo();
 
     const handleSum = () => {
         setSum(sum + 1);
@@ -23,6 +26,31 @@ export const ShopItems = () => {
         }
     }
 
+
+    useEffect(() => {
+        const handleData = async() => {
+            try{
+                const res = await fetch(`api/products/${itemsInfo}`);
+                const data = await res.json();
+                setDataArray(data);
+
+                //return dataArray;
+            } catch(error){
+                console.log("ERROR: ", error.message);
+            }
+        }
+
+        handleData();
+    }, [itemsInfo]);
+
+    useEffect(() => {
+        if (dataArray !== null){
+            //const data = dataArray.map(items => {return items});
+            //setInfo(data)
+            console.log(dataArray);
+        }
+    }, [dataArray]);
+
   return (
     <div className="shopitems__container" >
         <div className="infos">
@@ -32,21 +60,28 @@ export const ShopItems = () => {
             <div className="info__container">
                 <div className="information">
                 <div>
-                    <h2>Plaid Flannel Shirt</h2>
-                    <h3 className="animate__animated animate__fadeIn">$25.99</h3>
-                    <p>Product Type: Dress</p>
+                    {/*<div className="stars">
+                        <img src="https://images.vexels.com/media/users/3/143470/isolated/preview/a089c60c14bf19718cc283de5276e713-stars-icon-cartoon.png" alt="" />
+                    </div>*/}
+                    <h2>{itemsInfo}</h2>
+                    {dataArray && dataArray.map((items, index) => (
+                        <>
+                            <h3 key={index} className="animate__animated animate__fadeIn">{items.price}</h3>
+                        </>
+                    ))}
+                    <p>Product Type: <span className="dress__span">Dress</span></p>
+                    <p><span>Quantity</span></p>
+                    <div className="quantity__container">
+                        <button onClick={handleSum}>+</button>
+                        <button className="middle__btn">{sum}</button>
+                        <button onClick={handleRest}>-</button>
+                    </div>
                     <p><span>Size</span></p>
                     <div className="size__container">
                         <button>S</button>
                         <button>M</button>
                         <button>L</button>
                         <button>XL</button>
-                    </div>
-                    <p><span>Quantity</span></p>
-                    <div className="quantity__container">
-                        <button onClick={handleSum}>+</button>
-                        <button className="middle__btn">{sum}</button>
-                        <button onClick={handleRest}>-</button>
                     </div>
                 </div>
                     <div className="img">

@@ -4,11 +4,14 @@ import "./shop.scss";
 import 'animate.css';
 import { Zoom } from "react-awesome-reveal";
 import { Load } from "../../girls/loading/Load";
+import { useRouter } from "next/navigation";
 
 export const BoysShop = () => {
-  const [products, setProducts] = useState(null);
+    const [products, setProducts] = useState(null);
     const [optionsValues, setValues] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [items, setItems] = useState(null);
+    const router = useRouter();
 
     const handleSelect = async (e) => {
         setValues(e.target.value);
@@ -38,6 +41,11 @@ export const BoysShop = () => {
         }
     }, [products]);
 
+    const handleRouter = (value) => {
+        setItems(value);
+        router.push(`/${value}`);
+    }
+
   return (
     <div className="shop__container">
         <Zoom>
@@ -60,7 +68,7 @@ export const BoysShop = () => {
         <Load isLoading={loading} url="/loading-gif.gif"/>
         <div className="images__container">
                 {products && products.map((item, index) => (
-                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index}>
+                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => handleRouter(item.nombre)}>
                         <img src={item.img1} alt="" onChange={() => console.log("eff")}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>
