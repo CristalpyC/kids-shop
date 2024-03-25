@@ -5,12 +5,14 @@ import 'animate.css';
 import { Zoom } from "react-awesome-reveal";
 import { Load } from "../../girls/loading/Load";
 import { useRouter } from "next/navigation";
+import { useInfo } from "../../context/useInfo";
 
 export const BoysShop = () => {
     const [products, setProducts] = useState(null);
     const [optionsValues, setValues] = useState(null);
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
+    const { itemsInfo, setItemsInfo } = useInfo();
     const router = useRouter();
 
     const handleSelect = async (e) => {
@@ -18,9 +20,9 @@ export const BoysShop = () => {
     }
 
     useEffect(() => {
-        const handleGirlsData = async (val) => {
+        const handleBoysData = async (val) => {
             setLoading(true);
-            const res = await fetch(`api/products/${val}`);
+            const res = await fetch(`api/products/boys/${val}`);
             const data = await res.json();
 
             setProducts(data);
@@ -28,9 +30,9 @@ export const BoysShop = () => {
         }
 
         if (optionsValues !== null){
-            handleGirlsData(optionsValues);
+            handleBoysData(optionsValues);
         } else {
-            handleGirlsData("allb");
+            handleBoysData("all");
         }
         
     }, [optionsValues]);
@@ -41,8 +43,16 @@ export const BoysShop = () => {
         }
     }, [products]);
 
+    useEffect(() => {
+        if (itemsInfo !== null){
+            console.log("Items: ", itemsInfo);
+        }
+    }, [itemsInfo]);
+
     const handleRouter = (value) => {
         setItems(value);
+        setItemsInfo(value);
+
         router.push(`/${value}`);
     }
 
@@ -56,12 +66,12 @@ export const BoysShop = () => {
         </Zoom>
         <div className="select" onClick={handleSelect}>
             <select>
-                <option value="allb">All</option>
-                <option value="bsuit">Suits</option>
-                <option value="bswimwear">Swimwear</option>
-                <option value="bjeans">Jeans</option>
-                <option value="bt-shirt">T-shirts</option>
-                <option value="bpajama">Pajamas</option>
+                <option value="all">All</option>
+                <option value="suit">Suits</option>
+                <option value="swimwear">Swimwear</option>
+                <option value="jean">Jeans</option>
+                <option value="t-shirt">T-shirts</option>
+                <option value="pajama">Pajamas</option>
             </select>
         </div>
         {/*Espacio para incluir las mercancias */}

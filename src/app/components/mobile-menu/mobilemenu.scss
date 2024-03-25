@@ -2,16 +2,19 @@
 
 .mobilemenu__container{
     display: none;
-    background-color: #fff1ff;
+    background-color: #fff1ffec;
     width: 100%;
-    height: 50vh;
-    margin-top: 5.2rem;
+    height: 100vh;
+    //margin-top: 5.2rem;
     padding: 15px;
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
+    //right: 0;
+    z-index: 1;
 
-    @media screen and (max-width: 769px){
+    
+
+    /*@media screen and (max-width: 769px){
         margin-top: 5rem;
     }
 
@@ -49,7 +52,7 @@
 
     @media screen and (max-width: 289px){
         margin-top: .5rem;
-    }
+    }*/
 
     .close__icon{
         display: flex;
@@ -85,6 +88,11 @@
 
     @media screen and (max-width: 815px){
         display: block;
+    }
+
+    img{
+        margin-top: 3rem;
+        width: 100%;
     }
 }
 

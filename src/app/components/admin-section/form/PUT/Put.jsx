@@ -43,6 +43,9 @@ export const PutForm = () => {
       if (items.name === '' || items.price === '' || items.description === '' || items.img1 === '' || items.img2 === '' || items.public === '' || items.category === ''){
         setErrorState(false);
         setErrormessage("Data is empty ✖");
+        setTimeout(() => {
+          setErrormessage(null);
+        }, 2000);
         
       } else{
 
@@ -68,6 +71,9 @@ export const PutForm = () => {
 
           setErrorState(true);
           setErrormessage("Data has been update! ✓");
+          setTimeout(() => {
+            setErrormessage(null);
+          }, 2000);
           
         } catch (error){
           console.log('ERROR: ', error.message);
@@ -97,6 +103,9 @@ export const PutForm = () => {
                     setSearchState(true);
                     setErrormessage(null);
                     setMessage("This product exist! ✓");
+                    setTimeout(() => {
+                      setMessage(null);
+                    }, 2000);
                     setId(searchItem[0].id);
                     
                     setData({
@@ -114,6 +123,9 @@ export const PutForm = () => {
                     setSearchState(false);
                     setErrormessage(null);
                     setMessage("This item doesn't exist! ✓");
+                    setTimeout(() => {
+                      setMessage(null);
+                    }, 2000);
                 }
 
             } catch (error){

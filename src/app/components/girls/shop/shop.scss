@@ -96,13 +96,15 @@
         margin-top: 2rem;
 
         .card{
-            background-color: #e2e2e2;
+            background-color: #f8efed; //e2e2e2
             width: 20%;
             padding: 25px 25px 15px 25px;
             display: flex;
             margin-right: 1rem;
             margin-bottom: 1rem;
             flex-direction: column;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
 
             @media screen and (max-width: 905px){
                 width: 40%;
@@ -150,7 +152,8 @@
         }
 
         .card:hover{
-            background-color: rgb(219, 219, 219);
+            background-color: #f3dbef;
+            //background-color: rgb(219, 219, 219);
         }
     }
 }

@@ -18,7 +18,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8rem;
+        gap: 10rem; //8
 
         @media screen and (max-width: 850px){
             flex-wrap: wrap;
@@ -40,9 +40,16 @@
                 width: 100%;
                 height: auto;
                 margin-left: 1rem;
+                margin-top: -2rem;
 
                 @media screen and (max-width: 1250px){
-                    width: 100%;
+                    width: 150%;
+                    mix-blend-mode: multiply;
+                }
+
+                @media screen and (max-width: 1142px){
+                    width: 170%;
+                    margin-right: 2.5rem;
                 }
             }
         }
@@ -58,41 +65,57 @@
             }
 
             @media screen and (max-width: 727px){
-                margin-left: 0;
+                margin-left: 0px;
             }
 
             .information{
                 @media screen and (max-width: 1056px){
                     display: flex;
                     gap: 5rem;
-                    filter: brightness(1.1);
                     mix-blend-mode: multiply;
                 }
 
-                @media screen and (max-width: 727px){
+                @media screen and (max-width: 805px){
                     flex-wrap: wrap;
                     flex-direction: column-reverse;
                     justify-content: left;
-                    align-items: left; 
+                    align-items: left;
+                    gap: 0rem; 
                 }
             }
 
 
             .img{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 img{
                     display: none;
+                    //margin-bottom: -.5rem;
 
                     @media screen and (max-width: 1056px){
+                        width: 80%;
+                        margin-top: -4rem;
+                        margin-right: 0rem;
+                        margin-left: 0rem;
                         display: block;
                     }
 
-                    @media screen and (max-width: 727px){
+
+                    /*@media screen and (max-width: 805px){
+                        background-image: url("https://static.vecteezy.com/system/resources/previews/023/204/795/original/colorful-party-tinsel-and-confetti-falling-confetti-for-festival-background-colorful-confetti-falling-isolated-on-a-transparent-background-carnival-elements-birthday-celebration-free-png.png");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }*/
+
+                    /*@media screen and (max-width: 727px){
                         margin: auto;
                         width: 70%;
                         margin-bottom: 12rem;
-                    }
+                    }*/
 
-                    @media screen and (max-width: 626px){
+                    /*@media screen and (max-width: 626px){
                         margin-bottom: 8rem;
                     }
 
@@ -103,7 +126,7 @@
                     
                     @media screen and (max-width: 461px){
                         margin-bottom: .4rem; //7rem
-                    }
+                    }*/
                 }
             }
 
@@ -187,9 +210,14 @@
             h2{
                 font-size: 2rem;
                 color: #033851;
+                text-wrap: nowrap;
 
                 @media screen and (max-width: 443px){
                     font-size: 10vmin;
+                }
+
+                @media screen and (max-width: 590px){
+                    text-wrap: wrap;
                 }
             }
 
@@ -340,7 +368,6 @@
         }
 
         div{
-
             @media screen and (max-width: 727px){
                 display: flex;
                 justify-content: center;
@@ -356,18 +383,24 @@
                 }
 
                 @media screen and (max-width: 473px){
-                    width: 55%;
+                    width: 45%;
                 }
             }
 
             .img1{
                 margin-bottom: 5rem;
             }
+
+            .img2{
+                            padding: 15px;
+
+            }
+
         }
 
         p{
             margin-top: 1rem;
-            font-size: 1.8rem;
+            font-size: 1.3rem; //1.8rem
             color: #1b213e;
 
             @media screen and (max-width: 443px){
@@ -410,9 +443,13 @@
         flex-wrap: wrap;
         margin-top: 2rem;
 
+        .invisible{
+            display: none;
+        }
+
         .card{
             background-color: #fff;
-            width: 20%;
+            width: 22%;//20
             z-index: 2;
             box-shadow: 0px 2px 5px #d8c8ff;
             padding: 25px 25px 15px 25px;

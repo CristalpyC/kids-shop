@@ -22,7 +22,7 @@ export const Shop = () => {
     useEffect(() => {
         const handleGirlsData = async (val) => {
             setLoading(true);
-            const res = await fetch(`api/products/${val}`);
+            const res = await fetch(`api/products/girls/${val}`);
             const data = await res.json();
 
             setProducts(data);
@@ -103,7 +103,6 @@ export const Shop = () => {
                 <img src="/Comic-WOW-PNG-Clipart.png" alt="" />
             </div> 
         </div>
-        
     </div>
   )
 }

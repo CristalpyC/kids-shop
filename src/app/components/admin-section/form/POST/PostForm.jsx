@@ -26,7 +26,6 @@ export const PostForm = () => {
   const [errorMessage, setErrormessage] = useState(null);
   const [data, setData] = useState(val);
 
-
   const handlePost = async (values) => {
     values.preventDefault();
     const dataArray = new Array(data)

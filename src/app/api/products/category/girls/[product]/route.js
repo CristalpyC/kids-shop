@@ -3,53 +3,17 @@ import { NextResponse } from "next/server";
 
 export async function GET(request, {params}){
     try{
-        if (params.id === "stock"){
-            const productsCategory = await prisma.product.findMany({
-                where: {
-                    category: params.id
-                }
-            });
-
-            return NextResponse.json(productsCategory);
-
-        } else if (params.id === "arrivals") {
-            const productsArrivals = await prisma.product.findMany({
-                where: {
-                    category: params.id
-                }
-            });
-
-            return NextResponse.json(productsArrivals);
-
-        } else if (params.id === "girl") {
-            const girlsProduct = await prisma.product.findMany({
-                where: {
-                    public: params.id
-                }
-            });
-
-            return NextResponse.json(girlsProduct);
-
-        } else if (params.id === "boy") {
-            const boysProduct = await prisma.product.findMany({
-                where: {
-                    public: params.id
-                }
-            });
-
-            return NextResponse.json(boysProduct);
-
-        } 
-        else if (params.id === "3blouse") {
+        if (params.product === "blouse3") {
             const blouse3 = await prisma.product.findMany({
                 where: {
-                    category: "blouse"
+                    category: "blouse",
+                    public: "girl",
                 },
                 take: 3
             });
 
             return NextResponse.json(blouse3);
-        }else if (params.id === "3dress") {
+        }else if (params.product === "dress3") {
             const dress3 = await prisma.product.findMany({
                 where: {
                     category: "dress",
@@ -59,7 +23,7 @@ export async function GET(request, {params}){
             });
 
             return NextResponse.json(dress3);
-        }else if (params.id === "3t-shirt") {
+        }else if (params.product === "t-shirt3") {
             const shirt3 = await prisma.product.findMany({
                 where: {
                     category: "t-shirt",
@@ -69,7 +33,7 @@ export async function GET(request, {params}){
             });
 
             return NextResponse.json(shirt3);
-        }else if (params.id === "3skirt") {
+        }else if (params.product === "skirt3") {
             const skirt3 = await prisma.product.findMany({
                 where: {
                     category: "skirt",
@@ -79,7 +43,7 @@ export async function GET(request, {params}){
             });
 
             return NextResponse.json(skirt3);
-        } else if (params.id === "3pajama") {
+        } else if (params.product === "pajama3") {
             const pajama3 = await prisma.product.findMany({
                 where: {
                     category: "pajama",
@@ -89,7 +53,7 @@ export async function GET(request, {params}){
             });
 
             return NextResponse.json(pajama3);
-        } else if (params.id === "3swimwear") {
+        } else if (params.product === "swimwear3") {
             const swimwear3 = await prisma.product.findMany({
                 where: {
                     category: "swimwear",
@@ -99,7 +63,7 @@ export async function GET(request, {params}){
             });
 
             return NextResponse.json(swimwear3);
-        }  else if (params.id === "3jean") {
+        }  else if (params.product === "jean3") {
             const jean3 = await prisma.product.findMany({
                 where: {
                     category: "jean",
@@ -109,11 +73,32 @@ export async function GET(request, {params}){
             });
 
             return NextResponse.json(jean3);
-        } else {
-                if (!isNaN(params.id)){
+        } else if (params.product === "stock3") {
+            const stock3 = await prisma.product.findMany({
+                where: {
+                    category: "stock",
+                    public: "girl",
+                },
+                take: 3
+            });
+
+            return NextResponse.json(stock3); 
+        } else if (params.product === "arrivals3") {
+            const arrivals3 = await prisma.product.findMany({
+                where: {
+                    category: "arrivals",
+                    public: "girl",
+                },
+                take: 3
+            });
+
+            return NextResponse.json(arrivals3); 
+        }
+        else {
+                if (!isNaN(params.product)){
                     const products = await prisma.product.findUnique({
                         where: {
-                            id: Number(params.id)
+                            id: Number(params.product)
                         }
                     });
         
@@ -121,7 +106,7 @@ export async function GET(request, {params}){
                 } else{
                     const clothes = await prisma.product.findMany({
                         where: {
-                            nombre: params.id
+                            nombre: params.product
                         }
                     });
                     return NextResponse.json(clothes);
@@ -133,32 +118,3 @@ export async function GET(request, {params}){
         return NextResponse.json(error.message);
     }
 }
-
-export async function PUT(request, {params}){
-    try{
-        const data = await request.json();
-        const updateProduct = await prisma.product.update({
-            where: {
-                id: Number(params.id)
-            },
-            data: data,
-        });
-        return NextResponse.json(updateProduct);
-    } catch(error){
-        return NextResponse.json(error.message);
-    }
-}
-
-export async function DELETE(request, {params}){
-    try{
-        const productRemoved = await prisma.product.delete({
-            where: {
-                id: Number(params.id)
-            },
-        });
-        return NextResponse.json(productRemoved);
-    } catch(error){
-        return NextResponse.json(error.message);
-    }
-}
-

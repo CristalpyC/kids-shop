@@ -3,10 +3,15 @@ import { useEffect, useState } from "react";
 import "./arrivals.scss";
 import { Load } from "../girls/loading/Load";
 import { Zoom } from "react-awesome-reveal";
+import { useRouter } from "next/navigation";
+import { useInfo } from "../context/useInfo";
 
 export const NewArrivals = () => {
   const [productsData, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState(null);
+  const { itemsInfo, setItemsInfo } = useInfo();
+  const router = useRouter();
 
   useEffect(() => {
     setLoading(true);
@@ -28,6 +33,19 @@ export const NewArrivals = () => {
     }
   }, [productsData]);
 
+  useEffect(() => {
+    if (itemsInfo !== null){
+        console.log("Items: ", itemsInfo);
+    }
+  }, [itemsInfo]);
+
+  const handleRouter = (value) => {
+    setItems(value);
+    setItemsInfo(value);
+
+    router.push(`/${value}`);
+  }
+
   
   return (
     <div className="arrivals__container">
@@ -40,7 +58,7 @@ export const NewArrivals = () => {
       <Load isLoading={loading} url="/cute-gif.gif"/>
       <div className="images__container">
         {productsData && productsData.map((item, index) => (
-          <div className="card" key={index}>
+          <div className="card" key={index} onClick={() => handleRouter(item.nombre)}>
             <img src={item.img1} alt="" />
               <Zoom className="info">
                 <h3>{`$${item.price}`} </h3>

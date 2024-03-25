@@ -2,6 +2,7 @@ import { NewArrivals } from "./components/arrivals/NewArrivals";
 import { Banner } from "./components/banner/Banner";
 import { Category } from "./components/category/Category";
 import { Clothes } from "./components/clothes/Clothes";
+import { ItemsInfoProvider } from "./components/context/useInfo";
 import { Footer } from "./components/footer/Footer";
 import { NavBar } from "./components/navbar/NavBar";
 import { BannerPub } from "./components/publicity/bannerPubHome/BannerPub";
@@ -14,7 +15,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <>
+    <ItemsInfoProvider>
       <NavBar />
       <div>
         <Banner />
@@ -26,6 +27,6 @@ export default function Home() {
         <Testimonial />
         <Footer />
       </div>
-    </>
+    </ItemsInfoProvider>
   );
 }

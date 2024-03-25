@@ -32,6 +32,7 @@ export const MobileMenu = ({isOpen, onClick}) => {
             ))
         }
         </div>
+        <img src="/kids.png" alt="" />
     </div>
   )
 }

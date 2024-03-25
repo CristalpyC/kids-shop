@@ -4,12 +4,14 @@ import { Load } from "../../girls/loading/Load";
 import "./shop.scss";
 import 'animate.css';
 import { useRouter } from "next/navigation";
+import { useInfo } from "../../context/useInfo";
 
 export const AccShop = () => {
     const [products, setProducts] = useState(null);
     const [optionsValues, setValues] = useState(null);
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
+    const { itemsInfo, setItemsInfo } = useInfo();
     const router = useRouter();
 
     const handleSelect = async (e) => {
@@ -19,7 +21,7 @@ export const AccShop = () => {
     useEffect(() => {
         const handleGirlsData = async (val) => {
             setLoading(true);
-            const res = await fetch(`api/products/${val}`);
+            const res = await fetch(`api/products/accesory/${val}`);
             const data = await res.json();
 
             setProducts(data);
@@ -29,7 +31,7 @@ export const AccShop = () => {
         if (optionsValues !== null){
             handleGirlsData(optionsValues);
         } else {
-            handleGirlsData("allc");
+            handleGirlsData("all");
         }
         
     }, [optionsValues]);
@@ -40,8 +42,15 @@ export const AccShop = () => {
         }
     }, [products]);
 
+    useEffect(() => {
+        if (itemsInfo !== null){
+            console.log("D: ", itemsInfo);
+        }
+    }, [itemsInfo]);
+
     const handleRouter = (value) => {
         setItems(value);
+        setItemsInfo(value);
         router.push(`/${value}`);
     }
 
@@ -53,7 +62,7 @@ export const AccShop = () => {
         </div>
         <div className="acc__select" onClick={handleSelect}>
             <select>
-                <option value="allc">All</option>
+                <option value="all">All</option>
                 <option value="cap">Caps</option>
                 <option value="sunglasses">Sunglasses</option>
                 <option value="backpacks">Backpacks</option>

@@ -12,7 +12,58 @@ import { useInfo } from "../context/useInfo";
 export const ShopItems = () => {
     const [sum, setSum] = useState(1);
     const [dataArray, setDataArray] = useState(null);
+    const [topItems, setTopItems] = useState(null);
+    const [categoryData, setCategory] = useState(null);
+    const [publicData, setPublic] = useState(null);
     const { itemsInfo } = useInfo();
+
+    useEffect(() => {
+        const handleData = async() => {
+            try{
+                const res = await fetch(`api/products/${itemsInfo}`, { method:"GET" });
+                const data = await res.json();
+                setDataArray(data);
+
+            } catch(error){
+                console.log("ERROR: ", error.message);
+            }
+        }
+
+        if (itemsInfo !== null){
+            handleData();
+        }
+    }, [itemsInfo]);
+
+    useEffect(() => {
+        if (dataArray !== null){
+            setCategory(dataArray[0].category);
+            setPublic(dataArray[0].public);
+
+            if (publicData !== null){
+                console.log(publicData)
+            }
+        }
+    }, [dataArray, publicData]);
+
+    useEffect(() => {
+        const handleB = async(value) => {
+            let url
+            
+            if (publicData === "accesorie"){
+                url = `api/products/category/${publicData}/${value}3`;
+            } else {
+                url = `api/products/category/${publicData}s/${value}3`;
+            }
+            const res = await fetch(url, {method: "GET"});
+            const data = await res.json();
+            setTopItems(data);
+        }
+
+        if (categoryData !== null){
+            console.log(categoryData);
+            handleB(categoryData);
+        } 
+    }, [categoryData]);
 
     const handleSum = () => {
         setSum(sum + 1);
@@ -26,50 +77,30 @@ export const ShopItems = () => {
         }
     }
 
-
     useEffect(() => {
-        const handleData = async() => {
-            try{
-                const res = await fetch(`api/products/${itemsInfo}`);
-                const data = await res.json();
-                setDataArray(data);
-
-                //return dataArray;
-            } catch(error){
-                console.log("ERROR: ", error.message);
-            }
+        if (topItems !== null){
+            console.log(topItems);
         }
-
-        handleData();
-    }, [itemsInfo]);
-
-    useEffect(() => {
-        if (dataArray !== null){
-            //const data = dataArray.map(items => {return items});
-            //setInfo(data)
-            console.log(dataArray);
-        }
-    }, [dataArray]);
+    }, [topItems]);
 
   return (
-    <div className="shopitems__container" >
+    <div className="shopitems__container">
         <div className="infos">
-            <div className="img__info">
-                    <img className="animate__animated animate__zoomIn" src="https://i5.walmartimages.com/asr/4b4879c4-1667-492d-8297-20689080719f.37d60bf8c09d07e9a2a875251e9f2024.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" alt="" />
-            </div>  
+            {dataArray && dataArray.map((url, index) => (
+                <div className="img__info" key={index}>
+                    <img className="animate__animated animate__zoomIn"  src={url.img1} alt="" />
+                </div>  
+            ))}
             <div className="info__container">
                 <div className="information">
                 <div>
-                    {/*<div className="stars">
-                        <img src="https://images.vexels.com/media/users/3/143470/isolated/preview/a089c60c14bf19718cc283de5276e713-stars-icon-cartoon.png" alt="" />
-                    </div>*/}
                     <h2>{itemsInfo}</h2>
-                    {dataArray && dataArray.map((items, index) => (
+                    {dataArray && dataArray.map(items => (
                         <>
-                            <h3 key={index} className="animate__animated animate__fadeIn">{items.price}</h3>
+                            <h3 className="animate__animated animate__fadeIn">${items.price}</h3>
+                            <p>Product Type: <span className="dress__span">{items.category}</span></p>
                         </>
                     ))}
-                    <p>Product Type: <span className="dress__span">Dress</span></p>
                     <p><span>Quantity</span></p>
                     <div className="quantity__container">
                         <button onClick={handleSum}>+</button>
@@ -84,9 +115,11 @@ export const ShopItems = () => {
                         <button>XL</button>
                     </div>
                 </div>
-                    <div className="img">
-                        <img src="https://m.media-amazon.com/images/I/6183zC+RrUL._AC_UY350_.jpg" alt="" />
+                    {dataArray && dataArray.map((itemUrl, index) => (
+                    <div className="img" key={index}>
+                        <img src={itemUrl.img1} alt="" />
                     </div>
+                    ))}
                 </div>
                 <div className="buy__buttons">
                     <button className="cart__btn">ADD TO CART</button>
@@ -118,57 +151,34 @@ export const ShopItems = () => {
         </div>
         <Zoom>
         <div className="desc__container">
-                <div>
-                    <img className="img1" src="https://i5.walmartimages.com/asr/4b4879c4-1667-492d-8297-20689080719f.37d60bf8c09d07e9a2a875251e9f2024.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" alt="" />
-                    <img className="img2" src="https://i5.walmartimages.com/asr/685fc9bf-91ff-4606-94c4-9cac5b891554.1e072f7775ac5b739e1bfb5dab8dc02e.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" alt="" />
-                </div>
+                {dataArray && dataArray.map((items, index) => (
+                    <div key={index}>
+                        <img className="img1" src={items.img1} alt="" />
+                        <img className="img2" src={items.img2} alt="" />
+                    </div>
+                ))}
+                {dataArray && 
                 <p>
-                    A beautiful floral print dress perfect for any occasion. 
-                    Made with soft and comfortable fabric, this dress features a 
-                    flared skirt and a cute bow detail at the waist.
-                </p> 
+                    {dataArray[0].description}
+                </p> }
         </div>
         </Zoom>
         <Fade>
             <h1>You may <span className="p1">also</span> <span className="p2">like</span></h1> 
         </Fade>
         <div className="itemsimages__container">
-                <div className="card">
-                <JackInTheBox>
-                        <img src="https://i5.walmartimages.com/seo/Toddler-Boys-Girls-Tops-Flannel-Jacket-Plaid-Long-Sleeve-Lapel-Button-Down-Shacket-Baby-Pockets-Coat-Outwear-Kids-Clothes-Size-5-6T_d66e333d-3907-43ba-8be3-791822222d6a.76bcf5f29d0301a337ac7ca620d09b48.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" />
+            {topItems && topItems.map((values, index) => (
+                <div className={values.nombre === itemsInfo && values.nombre === values.nombre ? "invisible" : "card"} key={index}>
+                    <JackInTheBox >
+                        <img src={values.img1} />
                         <div className="info">
-                            <h3>$25.58</h3>
-                            <h4>ok</h4>
+                            <h3>${values.price}</h3>
+                            <h4>{values.nombre}</h4>
                         </div>
-                </JackInTheBox>
+                    </JackInTheBox>
                 </div>
-                <div className="card">
-                <JackInTheBox>
-                        <img src="https://i5.walmartimages.com/seo/Toddler-Boys-Girls-Tops-Flannel-Jacket-Plaid-Long-Sleeve-Lapel-Button-Down-Shacket-Baby-Pockets-Coat-Outwear-Kids-Clothes-Size-5-6T_d66e333d-3907-43ba-8be3-791822222d6a.76bcf5f29d0301a337ac7ca620d09b48.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" />
-                        <div className="info">
-                            <h3>$25.58</h3>
-                            <h4>ok</h4>
-                        </div>
-                </JackInTheBox>
-                </div>
-                <div className="card">
-                <JackInTheBox>
-                        <img src="https://i5.walmartimages.com/seo/Toddler-Boys-Girls-Tops-Flannel-Jacket-Plaid-Long-Sleeve-Lapel-Button-Down-Shacket-Baby-Pockets-Coat-Outwear-Kids-Clothes-Size-5-6T_d66e333d-3907-43ba-8be3-791822222d6a.76bcf5f29d0301a337ac7ca620d09b48.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" />
-                        <div className="info">
-                            <h3>$25.58</h3>
-                            <h4>ok</h4>
-                        </div>
-                </JackInTheBox>
-                </div>
+            ))}
         </div>
-        {/*<div className="items__container">
-                <h1>You may <span className="p1">also</span> <span className="p2">like</span></h1> 
-                <div className="items__img">
-                    <img src="https://static.vecteezy.com/system/resources/previews/024/187/126/original/kids-clothes-transparent-background-png.png" alt="" />
-                    <img src="https://static.vecteezy.com/system/resources/previews/024/187/189/original/kids-clothes-transparent-background-png.png" alt="" />
-                    <img src="https://static.vecteezy.com/system/resources/previews/024/187/189/original/kids-clothes-transparent-background-png.png" alt="" />
-                </div>
-  </div>*/}
     </div>
   )
 }

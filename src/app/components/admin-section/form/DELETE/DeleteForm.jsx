@@ -4,9 +4,6 @@ import { prisma } from "@/libs/prisma";
 import "./delete.scss";
 
 export const DeleteForm = () => {
-  /*const val = {
-    name: '',
-  };*/
 
   const [name, setName] = useState("Product name");
   const [errorState, setErrorState] = useState(true);
@@ -42,8 +39,9 @@ export const DeleteForm = () => {
           const deleteProduct = await fetch(`/api/products/${itemId}`, {method: "DELETE"})
           setErrorState(true);
           setErrormessage("Product has been removed! ✓");
-          //const y = await deleteProduct.json()
-          //console.log(y)
+          setTimeout(() => {
+            setErrormessage(null);
+          }, 2000);
         
           setData({name : ''});
         }
