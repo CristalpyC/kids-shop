@@ -19,19 +19,25 @@ export const AccShop = () => {
     }
 
     useEffect(() => {
-        const handleGirlsData = async (val) => {
-            setLoading(true);
+        setLoading(true);
+        const handleAccData = async (val) => {
+            if (val === "all"){
+                setLoading(false);
+            }
+            
+            //setLoading(true);
             const res = await fetch(`api/products/accesory/${val}`);
             const data = await res.json();
+            
 
             setProducts(data);
             setLoading(false);
         }
 
         if (optionsValues !== null){
-            handleGirlsData(optionsValues);
+            handleAccData(optionsValues);
         } else {
-            handleGirlsData("all");
+            handleAccData("all");
         }
         
     }, [optionsValues]);

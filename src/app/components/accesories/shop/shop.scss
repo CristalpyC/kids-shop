@@ -67,11 +67,15 @@
             padding: 25px 25px 15px 25px;
             display: flex;
             margin-right: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.4rem;
             flex-direction: column;
             border-top-left-radius: 25px;
             border-bottom-right-radius: 25px;
             box-shadow: 0px 1px 1px #96ddb3;
+
+            @media screen and (max-width: 1092px){
+                width: 30%;
+            }
 
             @media screen and (max-width: 905px){
                 width: 40%;
@@ -91,6 +95,10 @@
                 @media screen and (max-width: 1138px){
                     height: 25vh;
                 }
+
+                @media screen and (max-width: 1092px){
+                    height: 35vh;
+                }    
 
                 @media screen and (max-width: 905px){
                     height: 45vh;
