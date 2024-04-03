@@ -66,11 +66,22 @@
                     background-color: #ef9fa9;
                     color: #fff6f2;
                     font-weight: 500;
-                    //transition: ease-in-out 1s;
                 }
 
                 button:hover{
                     background-color: #fb6e7e;
+                }
+
+                .invisible{
+                    display: none;
+                }
+
+                .message{
+                    margin-top: 1rem;
+                    color: #0c7571;
+                    text-align: right;
+                    font-weight: 500;
+                    font-style: italic;
                 }
             }
 
