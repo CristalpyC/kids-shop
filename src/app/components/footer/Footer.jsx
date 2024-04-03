@@ -40,6 +40,17 @@ export const Footer = () => {
         });
     };
 
+    const emailSend = async (email) => {
+        try{
+            const res = await fetch(`/api/send/${email}`, {method: "POST"});
+            const data = await res.json();
+            console.log(data);
+        } catch(error){
+            console.log("ERROR: ", error.message);
+        }
+    };
+
+
   return (
     <div className="footer__container">
         <div className="form__container">
@@ -47,11 +58,13 @@ export const Footer = () => {
             <Formik
                 initialValues = {{email: ''}}
                 validate={handleValidation}
-                onSubmit = {(values, {resetForm}) => {
+                onSubmit = {async (values, {resetForm}) => {
+                    emailSend(values.email);
                     setTimeout(() => {
                         setMessage(false);
                     }, 2000);
-                    setMessage(true);
+        
+                    setMessage(true);                    
                     console.log(values);
                     resetForm();
                     
