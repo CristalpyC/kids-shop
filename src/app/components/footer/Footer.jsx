@@ -1,11 +1,12 @@
 "use client"
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
 import "./footer.scss";
 import 'animate.css';
 import { Form, Formik, ErrorMessage, Field } from "formik";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useRouter } from "next/navigation";
+import emailjs from '@emailjs/browser';
 
 export const Footer = () => {
     const [emailPlaceholder, setEmail] = useState("You email");
@@ -13,6 +14,7 @@ export const Footer = () => {
     const [errorClassname, setErrorclassname] = useState(true);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const router = useRouter();
+    const form = useRef();
 
     const handlePlaceholder = () => {
         setEmail("Ex: your@gmail.com");
@@ -40,15 +42,20 @@ export const Footer = () => {
         });
     };
 
-    const emailSend = async (email) => {
-        try{
-            const res = await fetch(`/api/send/${email}`, {method: "POST"});
-            const data = await res.json();
-            console.log(data);
-        } catch(error){
-            console.log("ERROR: ", error.message);
-        }
-    };
+    const sendEmail = () => {
+        emailjs
+          .sendForm('service_selyo0g', 'template_bnrawe5', form.current, {
+            publicKey: 'zNSEwNyo2G0uVyugv',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+      };
 
 
   return (
@@ -59,7 +66,7 @@ export const Footer = () => {
                 initialValues = {{email: ''}}
                 validate={handleValidation}
                 onSubmit = {async (values, {resetForm}) => {
-                    emailSend(values.email);
+                    sendEmail();
                     setTimeout(() => {
                         setMessage(false);
                     }, 2000);
@@ -70,7 +77,7 @@ export const Footer = () => {
                     
                 }}
             >
-                <Form className="form">
+                <Form className="form" ref={form}>
                     <div>
                         <Field 
                             type="email" 
