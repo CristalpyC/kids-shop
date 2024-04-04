@@ -25,6 +25,7 @@
     "react-awesome-reveal": "^4.2.8",
     "react-dom": "^18",
     "react-router-dom": "^6.22.1",
+    "resend": "^3.2.0",
     "sass": "^1.71.0",
     "styled-components": "^6.1.8"
   },

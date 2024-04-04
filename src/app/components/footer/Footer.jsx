@@ -1,11 +1,12 @@
 "use client"
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
 import "./footer.scss";
 import 'animate.css';
 import { Form, Formik, ErrorMessage, Field } from "formik";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useRouter } from "next/navigation";
+import emailjs from '@emailjs/browser';
 
 export const Footer = () => {
     const [emailPlaceholder, setEmail] = useState("You email");
@@ -13,6 +14,7 @@ export const Footer = () => {
     const [errorClassname, setErrorclassname] = useState(true);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const router = useRouter();
+    const form = useRef();
 
     const handlePlaceholder = () => {
         setEmail("Ex: your@gmail.com");
@@ -40,6 +42,22 @@ export const Footer = () => {
         });
     };
 
+    const sendEmail = () => {
+        emailjs
+          .sendForm('service_selyo0g', 'template_bnrawe5', form.current, {
+            publicKey: 'zNSEwNyo2G0uVyugv',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+      };
+
+
   return (
     <div className="footer__container">
         <div className="form__container">
@@ -47,17 +65,19 @@ export const Footer = () => {
             <Formik
                 initialValues = {{email: ''}}
                 validate={handleValidation}
-                onSubmit = {(values, {resetForm}) => {
+                onSubmit = {async (values, {resetForm}) => {
+                    sendEmail();
                     setTimeout(() => {
                         setMessage(false);
                     }, 2000);
-                    setMessage(true);
+        
+                    setMessage(true);                    
                     console.log(values);
                     resetForm();
                     
                 }}
             >
-                <Form className="form">
+                <Form className="form" ref={form}>
                     <div>
                         <Field 
                             type="email" 
