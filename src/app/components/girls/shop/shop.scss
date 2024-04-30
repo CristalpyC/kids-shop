@@ -106,6 +106,10 @@
             border-top-left-radius: 25px;
             border-bottom-right-radius: 25px;
 
+            @media screen and (max-width: 1092px){
+                width: 30%;
+            }           
+
             @media screen and (max-width: 905px){
                 width: 40%;
             }
@@ -124,6 +128,10 @@
                 @media screen and (max-width: 1138px){
                     height: 25vh;
                 }
+
+                @media screen and (max-width: 1092px){
+                    height: 35vh;
+                }  
 
                 @media screen and (max-width: 905px){
                     height: 45vh;
