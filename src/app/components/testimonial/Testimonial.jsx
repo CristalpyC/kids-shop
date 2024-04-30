@@ -5,6 +5,7 @@ import { JackInTheBox, Zoom } from "react-awesome-reveal";
 export const Testimonial = () => {
   return (
     <>
+    {/*Implementar map*/}
     <Zoom><h1 className="testimonial__title">Client say</h1></Zoom>
     <div className="testimonial__container">
         <JackInTheBox>

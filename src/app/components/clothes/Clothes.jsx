@@ -10,7 +10,7 @@ export const Clothes = () => {
     const [productArray, setProductArray] = useState(null);
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
-    const { itemsInfo, setItemsInfo } = useInfo();
+    const { setItemsInfo } = useInfo();
     const router = useRouter();
 
     useEffect(() => {
@@ -30,23 +30,9 @@ export const Clothes = () => {
         handleData();
     }, []); 
 
-    useEffect(() => {
-        if (productArray !== null) {
-            console.log(productArray);
-        }
-    }, [productArray]);
-
-    useEffect(() => {
-        if (itemsInfo !== null){
-            console.log("Items: ", itemsInfo);
-        }
-    }, [itemsInfo]);
-
     const handleRouter = (value) => {
         setItems(value);
         setItemsInfo(value);
-    
-        router.push(`/${value}`);
     }
 
   return (
@@ -60,13 +46,13 @@ export const Clothes = () => {
         <Load isLoading={loading} url="/cute-gif.gif"/>
         <div className="images__container">
             {productArray && productArray.map((items, index) => (
-                <div className="card" key={index} onClick={() => handleRouter(items.nombre)}>
+                <a className="card" href={`/${items.nombre}`} key={index} onClick={() => handleRouter(items.nombre)}>
                     <img src={items.img1} alt="" />
                     <Zoom className="info">
                         <h3>{`$${items.price}`}</h3>
                         <h4>{items.nombre}</h4>
                     </Zoom>
-                </div>
+                </a>
             ))}
         </div>
     </div>
