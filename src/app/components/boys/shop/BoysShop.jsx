@@ -79,7 +79,7 @@ export const BoysShop = () => {
         <div className="images__container">
                 {products && products.map((item, index) => (
                     <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => handleRouter(item.nombre)}>
-                        <img src={item.img1} alt="" onChange={() => console.log("eff")}/>
+                        <img src={item.img1} alt=""/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>
                             <h4>{item.nombre}</h4>

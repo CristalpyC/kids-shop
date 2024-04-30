@@ -8,6 +8,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import { useEffect, useState } from "react";
 import { useInfo } from "../context/useInfo";
+import { useRouter } from "next/navigation";
 
 export const ShopItems = () => {
     const [sum, setSum] = useState(1);
@@ -15,7 +16,9 @@ export const ShopItems = () => {
     const [topItems, setTopItems] = useState(null);
     const [categoryData, setCategory] = useState(null);
     const [publicData, setPublic] = useState(null);
-    const { itemsInfo } = useInfo();
+    const [items, setItems] = useState(null);
+    const { itemsInfo, setItemsInfo } = useInfo();
+    const router = useRouter();
 
     useEffect(() => {
         const handleData = async() => {
@@ -82,6 +85,19 @@ export const ShopItems = () => {
             console.log(topItems);
         }
     }, [topItems]);
+
+    useEffect(() => {
+        if (itemsInfo !== null){
+            console.log("Items: ", itemsInfo);
+        }
+    }, [itemsInfo]);
+
+    const handleRouter = (value) => {
+        setItems(value);
+        setItemsInfo(value);
+
+        router.push(`/${value}`);
+    }
 
   return (
     <div className="shopitems__container">
@@ -168,7 +184,7 @@ export const ShopItems = () => {
         </Fade>
         <div className="itemsimages__container">
             {topItems && topItems.map((values, index) => (
-                <div className={values.nombre === itemsInfo && values.nombre === values.nombre ? "invisible" : "card"} key={index}>
+                <div className={values.nombre === itemsInfo && values.nombre === values.nombre ? "invisible" : "card"} key={index} onClick={() => handleRouter(values.nombre)}>
                     <JackInTheBox >
                         <img src={values.img1} />
                         <div className="info">

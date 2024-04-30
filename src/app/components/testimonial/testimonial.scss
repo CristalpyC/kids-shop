@@ -20,7 +20,7 @@
         background-color: #fff3fa;
         border-radius: 25px;
         margin-left: 1rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
 
         @media screen and (max-width: 850px){
             margin-left: 0rem;
@@ -48,6 +48,10 @@
 
             @media screen and (max-width: 299px){
                 width: 28%;
+            }
+
+            @media screen and (max-width: 211px){
+                margin-top: -1rem;
             }
         }
 
