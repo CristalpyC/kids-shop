@@ -1,7 +1,6 @@
 import "./mobilemenu.scss";
 import 'animate.css';
 import CloseIcon from '@mui/icons-material/Close';
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const MobileMenu = ({isOpen, onClick}) => {
@@ -27,7 +26,7 @@ export const MobileMenu = ({isOpen, onClick}) => {
         {
             pages.map((items, index) => (
                 <li key={index}>
-                    <Link href={items.path}>{items.name}</Link>
+                    <a href={items.path}>{items.name}</a>
                 </li>
             ))
         }
