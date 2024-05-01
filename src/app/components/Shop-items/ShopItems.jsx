@@ -42,9 +42,9 @@ export const ShopItems = () => {
             setCategory(dataArray[0].category);
             setPublic(dataArray[0].public);
 
-            if (publicData !== null){
+            /*if (publicData !== null){
                 console.log(publicData)
-            }
+            }*/
         }
     }, [dataArray, publicData]);
 
@@ -63,7 +63,7 @@ export const ShopItems = () => {
         }
 
         if (categoryData !== null){
-            console.log(categoryData);
+            //console.log(categoryData);
             handleB(categoryData);
         } 
     }, [categoryData]);
@@ -80,17 +80,17 @@ export const ShopItems = () => {
         }
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (topItems !== null){
             console.log(topItems);
         }
-    }, [topItems]);
+    }, [topItems]);*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (itemsInfo !== null){
             console.log("Items: ", itemsInfo);
         }
-    }, [itemsInfo]);
+    }, [itemsInfo]);*/
 
     const handleRouter = (value) => {
         setItems(value);
@@ -132,9 +132,9 @@ export const ShopItems = () => {
                     </div>
                 </div>
                     {dataArray && dataArray.map((itemUrl, index) => (
-                    <div className="img" key={index}>
-                        <img src={itemUrl.img1} alt="" />
-                    </div>
+                        <div className="img" key={index}>
+                            <img src={itemUrl.img1} alt="" />
+                        </div>
                     ))}
                 </div>
                 <div className="buy__buttons">

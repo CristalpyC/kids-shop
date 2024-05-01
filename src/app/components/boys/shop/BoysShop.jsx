@@ -4,7 +4,6 @@ import "./shop.scss";
 import 'animate.css';
 import { Zoom } from "react-awesome-reveal";
 import { Load } from "../../girls/loading/Load";
-import { useRouter } from "next/navigation";
 import { useInfo } from "../../context/useInfo";
 
 export const BoysShop = () => {
@@ -13,7 +12,6 @@ export const BoysShop = () => {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const { itemsInfo, setItemsInfo } = useInfo();
-    const router = useRouter();
 
     const handleSelect = async (e) => {
         setValues(e.target.value);
@@ -37,23 +35,21 @@ export const BoysShop = () => {
         
     }, [optionsValues]);
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (products !== null){
             console.log(products)
         }
-    }, [products]);
+    }, [products]);*/
 
-    useEffect(() => {
+   /* useEffect(() => {
         if (itemsInfo !== null){
             console.log("Items: ", itemsInfo);
         }
-    }, [itemsInfo]);
+    }, [itemsInfo]);*/
 
     const handleRouter = (value) => {
         setItems(value);
         setItemsInfo(value);
-
-        router.push(`/${value}`);
     }
 
   return (
@@ -78,13 +74,13 @@ export const BoysShop = () => {
         <Load isLoading={loading} url="/loading-gif.gif"/>
         <div className="images__container">
                 {products && products.map((item, index) => (
-                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => handleRouter(item.nombre)}>
-                        <img src={item.img1} alt=""/>
+                    <a className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} href={`/${item.nombre}`}  onClick={() => handleRouter(item.nombre)}>
+                        <img src={item.img1} alt={item.nombre}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>
                             <h4>{item.nombre}</h4>
                         </div>
-                    </div>
+                    </a>
                 ))}
         </div>
     </div>

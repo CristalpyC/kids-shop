@@ -62,7 +62,7 @@
         margin-top: 2rem;
 
         .card{
-            background-color: #dae4ed; //e2e2e2
+            background-color: #dae4ed;
             width: 20%;
             padding: 25px 25px 15px 25px;
             display: flex;
@@ -71,6 +71,7 @@
             flex-direction: column;
             border-top-left-radius: 25px;
             border-bottom-right-radius: 25px;
+            text-decoration: none;
 
             @media screen and (max-width: 1092px){
                 width: 30%;
@@ -86,30 +87,10 @@
             }
 
             img{
-                width: 100%;
-                height: 35vh;
+                max-width: 100%;
+                max-height: 35vh;
                 margin-bottom: 1rem;
                 border: dashed 2px #098fad;
-
-                @media screen and (max-width: 1138px){
-                    height: 25vh;
-                }
-
-                @media screen and (max-width: 1092px){
-                    height: 35vh;
-                }
-
-                @media screen and (max-width: 905px){
-                    height: 45vh;
-                }
-
-                @media screen and (max-width: 607px){
-                    height: 35vh;
-                }
-
-                @media screen and (max-width: 234px){
-                    height: 25vh;
-                }
             }
 
             .info{
@@ -121,6 +102,7 @@
 
                 h4{
                     font-style: italic;
+                    color: black;
                 }
             }
         }
