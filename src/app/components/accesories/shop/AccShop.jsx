@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Load } from "../../girls/loading/Load";
 import "./shop.scss";
 import 'animate.css';
-import { useRouter } from "next/navigation";
 import { useInfo } from "../../context/useInfo";
 
 export const AccShop = () => {
@@ -12,7 +11,6 @@ export const AccShop = () => {
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
     const { itemsInfo, setItemsInfo } = useInfo();
-    const router = useRouter();
 
     const handleSelect = async (e) => {
         setValues(e.target.value);
@@ -21,13 +19,13 @@ export const AccShop = () => {
     useEffect(() => {
         setLoading(true);
         const handleAccData = async (val) => {
-            if (val === "all"){
-                setLoading(false);
-            }
-            
-            //setLoading(true);
+            //setLoading(false);
             const res = await fetch(`api/products/accesory/${val}`);
             const data = await res.json();
+
+            /*if (val === "all"){
+                setLoading(false);
+            }*/
             
 
             setProducts(data);
@@ -42,22 +40,9 @@ export const AccShop = () => {
         
     }, [optionsValues]);
 
-    useEffect(() => {
-        if (products !== null){
-            console.log(products)
-        }
-    }, [products]);
-
-    useEffect(() => {
-        if (itemsInfo !== null){
-            console.log("D: ", itemsInfo);
-        }
-    }, [itemsInfo]);
-
     const handleRouter = (value) => {
         setItems(value);
         setItemsInfo(value);
-        router.push(`/${value}`);
     }
 
   return (
@@ -79,13 +64,13 @@ export const AccShop = () => {
         <Load isLoading={loading} url="/loading-gif-icon-18.jpg"/>
         <div className="accimages__container">
                 {products && products.map((item, index) => (
-                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => handleRouter(item.nombre)}>
-                        <img src={item.img1} alt="" onChange={() => console.log("eff")}/>
+                    <a className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} href={`/${item.nombre}`}  onClick={() => handleRouter(item.nombre)}>
+                        <img src={item.img1} alt={item.nombre}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>
                             <h4>{item.nombre}</h4>
                         </div>
-                    </div>
+                    </a>
                 ))}
         </div>
     </div>

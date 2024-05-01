@@ -4,7 +4,7 @@ import "./shop.scss";
 import 'animate.css';
 import { Zoom } from "react-awesome-reveal";
 import { Load } from "../loading/Load";
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 import { useInfo } from "../../context/useInfo";
 
 export const Shop = () => {
@@ -12,7 +12,7 @@ export const Shop = () => {
     const [optionsValues, setValues] = useState(null);
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState(null);
-    const router = useRouter();
+    //const router = useRouter();
     const { itemsInfo, setItemsInfo } = useInfo();
 
     const handleSelect = async (e) => {
@@ -37,7 +37,7 @@ export const Shop = () => {
         
     }, [optionsValues]);
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (products !== null){
             console.log(products);
         }
@@ -47,14 +47,14 @@ export const Shop = () => {
         if (itemsInfo !== null){
             console.log("D: ", itemsInfo);
         }
-    }, [itemsInfo]);
+    }, [itemsInfo]);*/
 
     
     const handleRouter = (value) => {
         setItems(value);
         setItemsInfo(value);
         
-        router.push(`/${value}`);
+        //router.push(`/${value}`);
     }
 
     useEffect(() => {
@@ -87,13 +87,13 @@ export const Shop = () => {
         <Load isLoading={loading} url="/flower-giphy.gif"/>
         <div className="girlimages__container">
                 {products && products.map((item, index) => (
-                    <div className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} onClick={() => handleRouter(item.nombre)}>
+                    <a className={loading ? "card" : "card animate__animated animate__zoomIn"} key={index} href={`/${item.nombre}`}  onClick={() => handleRouter(item.nombre)}>
                         <img src={item.img1} alt={item.nombre}/>
                         <div className="info">
                             <h3>{`$${item.price}`}</h3>
                             <h4>{item.nombre}</h4>
                         </div>
-                    </div>
+                    </a>
                 ))}
         </div>
         
