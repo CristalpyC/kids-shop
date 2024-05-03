@@ -9,18 +9,22 @@ import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import { useEffect, useState } from "react";
 import { useInfo } from "../context/useInfo";
 import { useRouter } from "next/navigation";
+import { Load } from "../girls/loading/Load";
 
 export const ShopItems = () => {
+    //Implementar método para reducir el consumo de tantos useStates: useReducer puede ser
     const [sum, setSum] = useState(1);
     const [dataArray, setDataArray] = useState(null);
     const [topItems, setTopItems] = useState(null);
     const [categoryData, setCategory] = useState(null);
     const [publicData, setPublic] = useState(null);
     const [items, setItems] = useState(null);
+    const [loading, setLoading] = useState(true);
     const { itemsInfo, setItemsInfo } = useInfo();
     const router = useRouter();
 
     useEffect(() => {
+        setLoading(true);
         const handleData = async() => {
             try{
                 const res = await fetch(`api/products/${itemsInfo}`, { method:"GET" });
@@ -35,6 +39,8 @@ export const ShopItems = () => {
         if (itemsInfo !== null){
             handleData();
         }
+
+        
     }, [itemsInfo]);
 
     useEffect(() => {
@@ -66,6 +72,8 @@ export const ShopItems = () => {
             //console.log(categoryData);
             handleB(categoryData);
         } 
+
+        setLoading(false);
     }, [categoryData]);
 
     const handleSum = () => {
@@ -100,7 +108,9 @@ export const ShopItems = () => {
     }
 
   return (
-    <div className="shopitems__container">
+    <>
+    <Load isLoading={loading} url="/cart-gif.gif"/>
+    <div className={loading ? "invisible" : "shopitems__container" }>
         <div className="infos">
             {dataArray && dataArray.map((url, index) => (
                 <div className="img__info" key={index}>
@@ -196,5 +206,6 @@ export const ShopItems = () => {
             ))}
         </div>
     </div>
+    </>
   )
 }
